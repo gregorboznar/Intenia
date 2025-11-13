@@ -95,7 +95,7 @@ export default function ModernFeatures() {
   // Automatically update activeTab when a user selects a new tab
   const handleTabChange = (value: string) => {
     setActiveTab(value)
-    
+
     // Only scroll on mobile devices - fixed scrolling UX issue
     if (isMobile && mounted) {
       setTimeout(() => {
@@ -180,11 +180,11 @@ export default function ModernFeatures() {
                           src={feature.image || "/placeholder.svg"}
                           alt={feature.title}
                           className="w-full h-auto rounded-lg"
-                           
+
                         />
                       </div>
                     </div>
-                    
+
                     <p className="text-white/70 text-sm sm:text-base mb-4 mt-8 sm:mb-6">{feature.description}</p>
 
                     {/* More simplified list for mobile */}
@@ -211,7 +211,7 @@ export default function ModernFeatures() {
                     <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden p-1 ">
                       <img
                         src={feature.image || "/placeholder.svg"}
-                        alt={feature.title} 
+                        alt={feature.title}
                         className="w-full h-auto rounded-lg"
                       />
                     </div>

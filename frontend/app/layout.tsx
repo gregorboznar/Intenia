@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: "Inženirska odličnost - Inovativnost in kakovost",
     images: [
       {
-        url: "/image.png",
+        url: "/temp.png",
         width: 1200,
         height: 630,
         alt: "Intenia Engineering",
