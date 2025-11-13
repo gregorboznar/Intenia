@@ -68,10 +68,6 @@ export default function ProductsPage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
     },
   }
 
@@ -114,6 +110,7 @@ export default function ProductsPage() {
               <motion.div
                 key={product.id}
                 variants={itemVariants}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 className="group relative"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
