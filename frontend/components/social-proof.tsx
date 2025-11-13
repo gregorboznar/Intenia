@@ -36,10 +36,6 @@ export default function SocialProof() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
     },
   }
 
@@ -106,7 +102,12 @@ export default function SocialProof() {
           aria-label="Key platform statistics"
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} className="text-center h-full" variants={itemVariants}>
+            <motion.div
+              key={index}
+              className="text-center h-full"
+              variants={itemVariants}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               <div className="relative group h-full">
                 <div
                   className="absolute -inset-0.5 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-300"
