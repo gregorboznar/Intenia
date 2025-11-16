@@ -3,13 +3,14 @@
 import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/hero";
+import HeroTest from "@/components/hero-test";
 
 // Scroll restoration component
 const ScrollRestoration = () => {
   useEffect(() => {
     // Check if there's a hash in the URL
     const hash = window.location.hash;
-    
+
     if (hash) {
       // Wait for components to load, then scroll to the hash
       const timer = setTimeout(() => {
@@ -18,7 +19,7 @@ const ScrollRestoration = () => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }, 500); // Give time for lazy-loaded components
-      
+
       return () => clearTimeout(timer);
     } else {
       // Only scroll to top if there's no hash
@@ -112,7 +113,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black px-0 sm:px-4 text-white">
       <ScrollRestoration />
-      <Hero />
+      {/*   <Hero /> */}
+      <HeroTest />
       {/* <LazyLoad>
         <SocialProof />
       </LazyLoad> */}

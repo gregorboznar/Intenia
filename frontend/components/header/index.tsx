@@ -44,13 +44,13 @@ export default function ModernHeader() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image
-            src="/images/logos/Intenia-engineering.jpeg"
+          {/* <Image
+            src="/images/logos/intenia-logo.png"
             alt="Intenia Engineering Logo"
-            width={150}
+            width={100}
             height={40}
-            className="h-10 w-auto"
-          />
+            className="h-8 w-auto"
+          /> */}
         </Link>
 
         {/* Desktop Navigation */}
