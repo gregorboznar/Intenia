@@ -1,23 +1,98 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
 
 export default function ModernFooter() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isHovering, setIsHovering] = useState(false)
+  const [revealRadius, setRevealRadius] = useState(0)
+  const [revealOpacity, setRevealOpacity] = useState(0)
+  const logoContainerRef = useRef<HTMLDivElement>(null)
+  const hoverZoneRadius = 900
+  const maxRevealRadius = 1000
+  const minRevealRadius = 300
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!logoContainerRef.current) return
+
+      const rect = logoContainerRef.current.getBoundingClientRect()
+      const mouseX = e.clientX
+      const mouseY = e.clientY
+
+      const containerLeft = rect.left
+      const containerRight = rect.right
+      const containerTop = rect.top
+      const containerBottom = rect.bottom
+
+      const isMouseInside = mouseX >= containerLeft && mouseX <= containerRight &&
+        mouseY >= containerTop && mouseY <= containerBottom
+
+      let distanceToContainer = 0
+      let closestX = mouseX
+      let closestY = mouseY
+
+      if (isMouseInside) {
+        closestX = mouseX
+        closestY = mouseY
+        distanceToContainer = 0
+      } else {
+        if (mouseX < containerLeft) {
+          closestX = containerLeft
+        } else if (mouseX > containerRight) {
+          closestX = containerRight
+        } else {
+          closestX = mouseX
+        }
+
+        if (mouseY < containerTop) {
+          closestY = containerTop
+        } else if (mouseY > containerBottom) {
+          closestY = containerBottom
+        } else {
+          closestY = mouseY
+        }
+
+        const dx = mouseX - closestX
+        const dy = mouseY - closestY
+        distanceToContainer = Math.sqrt(dx * dx + dy * dy)
+      }
+
+      if (distanceToContainer <= hoverZoneRadius) {
+        setIsHovering(true)
+
+        const revealX = Math.max(0, Math.min(rect.width, closestX - rect.left))
+        const revealY = Math.max(0, Math.min(rect.height, closestY - rect.top))
+
+        setMousePosition({ x: revealX, y: revealY })
+
+        const normalizedDistance = Math.min(distanceToContainer / hoverZoneRadius, 1)
+        const proximity = 1 - normalizedDistance
+
+        const radius = minRevealRadius + (maxRevealRadius - minRevealRadius) * proximity
+        const opacity = proximity
+
+        setRevealRadius(radius)
+        setRevealOpacity(opacity)
+      } else {
+        setIsHovering(false)
+        setRevealRadius(0)
+        setRevealOpacity(0)
+      }
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
+  }, [hoverZoneRadius, maxRevealRadius, minRevealRadius])
+
   return (
-    <footer className="bg-black border-t border-white/10 py-8  sm:py-16  px-3 sm:px-6 lg:px-8">
+    <footer className="bg-black   px-3 sm:px-6 lg:px-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
+        {/*  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary to-brand-primary-light rounded-lg rotate-45 transform origin-center"></div>
-                <div className="absolute inset-[3px] bg-black rounded-lg flex items-center justify-center text-white font-bold">
-                  N
-                </div>
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
-                Nova
-              </span>
-            </Link>
             <p className="text-white/70 mb-6">
               Omogočanje podjetjem z rešitvami, ki jih poganja umetna inteligenca, za spodbujanje rasti in učinkovitosti.
             </p>
@@ -45,7 +120,7 @@ export default function ModernFooter() {
             </div>
           </div>
 
-          {/*  <div>
+          <div>
             <h3 className="text-lg font-bold mb-4">Product</h3>
             <ul className="space-y-3">
               <li>
@@ -105,9 +180,9 @@ export default function ModernFooter() {
                 </Link>
               </li>
             </ul>
-          </div> */}
+          </div> *
 
-          {/* <div>
+          <div>
             <h3 className="text-lg font-bold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
@@ -136,10 +211,10 @@ export default function ModernFooter() {
                 </Link>
               </li>
             </ul>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
 
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Podjetje. Vse pravice pridržane.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
@@ -151,6 +226,40 @@ export default function ModernFooter() {
             <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
               Politika piškotkov
             </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full  py-8 sm:py-12 h-[400px] d-flex ">
+        <div className="w-full flex items-end justify-center h-full">
+          <div
+            ref={logoContainerRef}
+            className="relative w-full mx-auto px-4 group"
+          >
+            <div className="relative w-full h-16 sm:h-24 md:h-32">
+              <div
+                className="absolute inset-0 overflow-hidden"
+                style={{
+                  maskImage: isHovering
+                    ? `radial-gradient(circle ${revealRadius * 2}px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, black 20%, rgba(0,0,0,0.8) 35%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 70%, transparent 100%)`
+                    : 'radial-gradient(circle 0px at 50% 50%, transparent 0%, transparent 100%)',
+                  WebkitMaskImage: isHovering
+                    ? `radial-gradient(circle ${revealRadius * 2}px at ${mousePosition.x}px ${mousePosition.y}px, black 0%, black 20%, rgba(0,0,0,0.8) 35%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 70%, transparent 100%)`
+                    : 'radial-gradient(circle 0px at 50% 50%, transparent 0%, transparent 100%)',
+                  transition: isHovering ? 'mask-image 0.1s ease-out, -webkit-mask-image 0.1s ease-out, opacity 0.1s ease-out' : 'mask-image 0.3s ease-out, -webkit-mask-image 0.3s ease-out, opacity 0.3s ease-out',
+                  opacity: revealOpacity,
+                }}
+              >
+                <Image
+                  src="/images/logos/intenia-logo.png"
+                  alt="Intenia Engineering Logo"
+                  width={1200}
+                  height={480}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
