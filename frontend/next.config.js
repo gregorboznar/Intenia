@@ -37,6 +37,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'intenia-engineering.si',
+      },
     ],
     unoptimized: process.env.NODE_ENV === 'development',
   },
