@@ -129,7 +129,7 @@ export default function Products() {
                     {product.category}
                   </span> */}
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-2 group-hover:text-brand-primary-light transition-colors">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-2 ">
                   {product.name}
                 </h2>
                 <p className="text-sm sm:text-base text-white/70 mb-4 flex-grow">

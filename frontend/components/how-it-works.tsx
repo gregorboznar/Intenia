@@ -98,7 +98,7 @@ export default function AboutUs() {
   }, [currentSlide]);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-black relative overflow-x-hidden">
+    <section className="py-8 sm:py-12 md:py-16 bg-black relative overflow-x-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-primary/10 rounded-full blur-[100px]"></div>
@@ -114,7 +114,7 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-12 lg:mt-16 scroll-mt-16"
+          className="mt-8 lg:mt-8 scroll-mt-8"
         >
           <div className="flex flex-col-reverse justify-between items-start gap-12 lg:flex-row lg:gap-0">
             {/* Left Side - Slider */}

@@ -74,7 +74,7 @@ export default function ContactForm() {
         <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-repeat opacity-10"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-0 sm:px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,9 +86,9 @@ export default function ContactForm() {
             <div className="mx-auto w-full relative">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-[29px] blur-lg opacity-70"></div>
-                <div className="relative bg-white rounded-[29px] rounded-br-none px-6 pt-10 pb-16 lg:px-16 lg:py-24">
+                <div className="relative bg-white rounded-[29px] rounded-br-none px-6 pt-10 pb-10 sm:pb-16 md:px-8 lg:px-8 lg:py-24">
 
-                  <div className="container mx-auto block items-center lg:flex">
+                  <div className="container mx-0 px-0 sm:mx-auto sm:px-4 block items-center lg:flex">
 
                     <div className="w-full lg:w-1/3 mb-10 lg:mb-0">
                       <p className="relative pl-5 mb-2 text-base lg:mb-5 lg:text-lg inline-flex items-center">
@@ -103,12 +103,12 @@ export default function ContactForm() {
                       </h4>
                     </div>
 
-                    {/* Right Section - Form */}
-                    <div className="w-full lg:w-2/3 lg:pl-20">
+
+                    <div className="w-full lg:w-2/3 lg:pl-4 xl:pl-8 2xl:pl-20">
                       <form onSubmit={handleSubmit} className="inquiry-submit">
-                        {/* Name and Email Row */}
+
                         <div className="grid gap-x-8 gap-y-10 mb-10 lg:gap-y-16 lg:grid-cols-2 lg:mb-16">
-                          {/* Name Input */}
+
                           <div className="relative text-lg font-semibold">
                             <input
                               type="text"
@@ -187,7 +187,7 @@ export default function ContactForm() {
                         {/* Checkbox and Submit Button Row */}
                         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-0 mt-8 lg:mt-16">
                           {/* Privacy Checkbox */}
-                          <div className="inline-flex items-start mr-5">
+                          <div className="inline-flex items-start mr-0 sm:mr-5">
                             <label className="relative flex items-center rounded-full cursor-pointer" htmlFor="ContactTerms">
                               <input
                                 type="checkbox"
@@ -215,7 +215,7 @@ export default function ContactForm() {
                               </span>
                             </label>
                             <label
-                              className="font-semibold text-xs text-gray-400 cursor-pointer select-none pl-3 leading-relaxed"
+                              className=" text-xs text-gray-400 cursor-pointer select-none pl-3 leading-relaxed"
                               htmlFor="ContactTerms"
                             >
                               Vaše osebne podatke bomo obdelovali za namene obravnave povpraševanja. Več o obdelavi osebnih podatkov si preberite v{" "}
@@ -230,7 +230,7 @@ export default function ContactForm() {
                           )}
 
                           {/* Submit Button */}
-                          <div className="relative group inline-flex items-center font-semibold text-white">
+                          <div className="relative group inline-flex items-center font-semibold text-white hidden lg:block">
                             <svg width="0" height="0" className="absolute hidden" colorInterpolationFilters="sRGB">
                               <defs>
                                 <filter id="buttonFilter">
@@ -247,6 +247,7 @@ export default function ContactForm() {
                               </defs>
                             </svg>
                             <button
+
                               type="submit"
                               disabled={isSubmitting}
                               className="inline-flex relative group outline-none focus:outline-none disabled:opacity-50"
@@ -304,15 +305,31 @@ export default function ContactForm() {
                         </filter>
                       </defs>
                     </svg>
-                    <button type="submit" form="InquiryForm" className="inline-flex relative group outline-none focus:outline-none" style={{ filter: "url(#buttonFilter)" }}>
-                      <div className="w-auto inline-flex items-center relative leading-tight overflow-hidden rounded-full bg-black py-2.5 px-16">
+                    <button
+
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex relative group outline-none focus:outline-none"
+                      style={{ filter: "url(#buttonFilter)" }}
+                    >
+                      <div className="w-auto inline-flex items-center relative leading-tight overflow-hidden rounded-full bg-black py-2.5 px-10 sm:px-12 lg:px-16">
                         <div className="relative inline-flex top-px flex-shrink-0">
-                          <div>Pošlji</div>
+                          <div>{isSubmitting ? "Pošiljanje..." : "Pošlji"}</div>
                         </div>
                       </div>
-                      <div className="bg-black flex-shrink-0 overflow-hidden flex items-center jusitfy-center -ml-1 rounded-full transform transition-transform w-10 h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45 js-button-icon"></div>
+                      <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 sm:w-10 sm:h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
+                        <svg
+                          className="w-3 h-3 fill-current text-white"
+                          width="23"
+                          height="23"
+                          viewBox="0 0 23 23"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M17.27 6.37a1 1 0 0 0-1.004-1.003h-9.9a1.004 1.004 0 1 0 0 2.008l7.49-.007-8.196 8.195a1 1 0 1 0 1.414 1.415l8.195-8.196-.007 7.488a1 1 0 0 0 1.004 1.005 1 1 0 0 0 1.004-1.005v-9.9z" />
+                        </svg>
+                      </div>
                     </button>
-                    <div className="w-10 h-10 absolute top-0 right-0 flex items-center justify-center transition-transform transform lg:group-hover:translate-x-3 lg:group-hover:rotate-45 pointer-events-none js-button-arrow">
+                    <div className="w-10 h-10 sm:w-10 sm:h-10 absolute top-0 right-0 flex items-center justify-center transition-transform transform lg:group-hover:translate-x-3 lg:group-hover:rotate-45 pointer-events-none js-button-arrow">
                       <div className="relative overflow-hidden">
                         <div className="relative top-0 left-0 transition-transform transform js-button-arrow-icon-primary">
                           <svg className="w-3 h-3 fill-current" width="23" height="23" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
