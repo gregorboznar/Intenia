@@ -42,18 +42,7 @@ export default function ModernHeader() {
         scrolled ? "bg-black/80 backdrop-blur-lg shadow-lg shadow-black/20 border-b border-white/10" : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          {/* <Image
-            src="/images/logos/intenia-logo.png"
-            alt="Intenia Engineering Logo"
-            width={100}
-            height={40}
-            className="h-8 w-auto"
-          /> */}
-        </Link>
-
+      <div className="container mx-auto pl-0 pr-4 flex items-center justify-between">
         {/* Desktop Navigation */}
         <DesktopNav />
 

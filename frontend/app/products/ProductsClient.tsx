@@ -56,7 +56,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             className="text-center mb-8 sm:mb-12"
           >
             <h1 id="products-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-              Naši Produkti & Storitve
+              Naši Produkti
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
               Obsežne rešitve, prilagojene vašim industrijskim potrebam

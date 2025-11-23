@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
 import { Globe } from "lucide-react"
@@ -47,6 +48,16 @@ export default function DesktopNav() {
 
   return (
     <>
+      <Link href="/" className="hidden md:flex items-center   mr-2 lg:mr-4 ml-2 lg:ml-4">
+        <Image
+          src="/images/logos/intenia-logo-2.png"
+          alt="Intenia Engineering Logo"
+          width={150}
+          height={40}
+          className="h-5 w-auto"
+          priority
+        />
+      </Link>
       <nav className="hidden md:flex items-center gap-4 lg:gap-8">
         <Link
           href="/#o-nas"
