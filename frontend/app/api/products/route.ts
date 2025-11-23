@@ -3,13 +3,31 @@ import https from 'https';
 
 export const dynamic = 'force-dynamic';
 
-function fetchWithHttps(url: string): Promise<any> {
+function fetchWithHttps(url: string, maxRedirects = 5): Promise<any> {
   return new Promise((resolve, reject) => {
+    if (maxRedirects === 0) {
+      reject(new Error('Too many redirects'));
+      return;
+    }
+
     const options = {
       rejectUnauthorized: process.env.NODE_ENV === 'production',
     };
 
     https.get(url, options, (res) => {
+
+      if (res.statusCode && (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308)) {
+        const location = res.headers.location;
+        if (location) {
+
+          res.destroy();
+          fetchWithHttps(location, maxRedirects - 1)
+            .then(resolve)
+            .catch(reject);
+          return;
+        }
+      }
+
       let data = '';
 
       res.on('data', (chunk) => {
@@ -36,7 +54,7 @@ function fetchWithHttps(url: string): Promise<any> {
 export async function GET() {
   try {
     const data = await fetchWithHttps(
-      "https://intenia-engineering.si/wp-json/wp/v2/industrial-products"
+      "https://wp.intenia-engineering.si/wp-json/wp/v2/industrial-products"
     );
     return NextResponse.json(data);
   } catch (error: any) {

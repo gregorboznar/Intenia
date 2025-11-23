@@ -90,7 +90,7 @@ export default function Products() {
               <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                 <div className="flex-1 order-2 md:order-1 text-left">
                   <div className="flex items-start gap-4 mb-6">
-                    <span className="text-brand-primary text-4xl md:text-5xl font-black tracking-tighter leading-none mt-1">III</span>
+                    <span className="text-brand-primary text-4xl md:text-5xl font-black tracking-tighter leading-none ">III</span>
                     <h3 className="text-3xl md:text-5xl font-bold uppercase text-white leading-tight">
                       {product.name}
                     </h3>

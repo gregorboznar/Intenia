@@ -8,7 +8,7 @@ export default function HeroTest() {
       <div className="container mx-auto px-4 relative z-10 flex items-center justify-center">
         <div className="w-full h-full flex items-center justify-center">
           <Image
-            src="/images/logos/intenia-logo.png"
+            src="/images/logos/intenia-logo-2.png"
             alt="Intenia Engineering Logo"
             width={1200}
             height={480}
