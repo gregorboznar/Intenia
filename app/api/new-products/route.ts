@@ -53,7 +53,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const lang = searchParams.get('lang') || 'sl';
-    
+
     const data = await fetchWithHttps(
       `https://wp.intenia-engineering.si/wp-json/wp/v2/new-products?lang=${lang}&_embed`
     );

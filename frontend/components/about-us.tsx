@@ -176,8 +176,6 @@ export default function AboutUs() {
                 </div>
               </div>
             </div>
-
-            {/* Right Side - Text Content */}
             <div className="w-full lg:w-3/5 ">
               <div className="relative">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
@@ -185,7 +183,7 @@ export default function AboutUs() {
                 </h2>
 
                 <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 lg:mb-12">
-                  Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, konzultacijskih, proizvodnih in posredovalnih storitev. Naša misija je zagotavljati inovativne rešitve, ki presegajo pričakovanja strank, hkrati pa dajemo prednost trajnosti, varnosti in učinkovitosti.
+                  Intenia, ki je bazirana v Sloveniji je od leta 2013 rasla kot zanesljiv industrijski partner. V tem času smo si zgradili močno mrežo preverjenih kooperantov in partnerjev, s katerimi dolgoročno sodelujemo in jim zaupamo pri izvedbi projektov. Danes to izkušnjo nadgrajujemo kot Intenia Engineering d.o.o.. Reorganizacija, posodobljeni procesi in pomlajena ekipa so nas usmerili v novo fazo. Združujemo naučeno iz preteklosti in energijo nove generacije. Naš cilj je preprost: dostaviti rešitve, ki merljivo izboljšajo procese, so varne in trajnostne ter ostanejo skladni z evropskimi standardi. (intenia v intenia engineering)
                 </p>
               </div>
             </div>
@@ -239,11 +237,10 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Naša načela */}
           <div className="mb-20 lg:mb-32">
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Naša načela</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
                 <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
                   <Target className="w-6 h-6 text-brand-primary" />
                 </div>
@@ -252,7 +249,7 @@ export default function AboutUs() {
                   Našo kulturo vodijo jasno definirana načela. Rešitve morajo biti praktično uporabne in naročniku prinesti konkretno vrednost – bodisi v obliki višje zanesljivosti, manjših izpadov, nižjih stroškov ali lažjega vzdrževanja.
                 </p>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
                 <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
                   <Shield className="w-6 h-6 text-brand-primary" />
                 </div>
@@ -261,7 +258,7 @@ export default function AboutUs() {
                   Pri zasnovi smo racionalni. Namesto nepotrebnega kompliciranja iščemo tehnično utemeljeno, izvedljivo pot. Varnost obravnavamo kot osnovni pogoj. Upoštevamo veljavne direktive in standarde ter skrbimo, da so rešitve prijazne do uporabnikov.
                 </p>
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
                 <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
                   <Leaf className="w-6 h-6 text-brand-primary" />
                 </div>
@@ -283,9 +280,9 @@ export default function AboutUs() {
               <p className="text-base sm:text-lg text-white/70 mb-8">
                 Če iščete zanesljivega izvajalca, ki prevzame odgovornost od ideje do dobave in deluje po načelu rešitve po meri naročnika, nas kontaktirajte prek obrazca. Vaše povpraševanje obravnavamo prednostno in v kratkem času preverimo, kako lahko z našim znanjem in mrežo partnerjev podprete vaš projekt.
               </p>
-              <a href="#kontakt" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-black bg-white rounded-full hover:bg-white/90 transition-colors">
+              {/*   <a href="#kontakt" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-black bg-white rounded-full hover:bg-white/90 transition-colors">
                 Kontaktirajte nas
-              </a>
+              </a> */}
             </div>
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10">
