@@ -92,12 +92,12 @@ export default function Products() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/products">
+          {/*  <Link href="/products">
             <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full">
               Raziskajte več produktov
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </Link>
+          </Link> */}
         </motion.div>
       </div>
     </section>

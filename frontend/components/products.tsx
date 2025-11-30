@@ -119,7 +119,7 @@ export default function Products() {
           className="text-center mt-8 sm:mt-12"
         >
           <Link href="/products">
-            <Button className="bg-gradient-to-r from-brand-primary to-brand-primary-light hover:from-brand-primary-dark hover:to-brand-primary text-white border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
+            <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full">
               Raziskajte več produktov
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

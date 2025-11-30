@@ -13,22 +13,42 @@ export default function AboutUs() {
   const aboutUsFacts = [
     {
       icon: Users,
-      title: "Več kot 10 let izkušenj",
+      title: "Močna mreža preverjenih kooperantov",
       description: "Intenia d.o.o. → danes Intenia Engineering d.o.o.",
     },
     {
       icon: Network,
-      title: "Tesno sodelovanje",
+      title: "Rešitve po meri naročnika",
       description: "Z večjimi industrijskimi partnerji v EU",
     },
     {
       icon: Users,
-      title: "4 zaposleni",
+      title: "Inženiring celotnega cikla – od analize do montaže",
       description: "+ mreža zunanjih konstrukterjev in kooperantov",
     },
     {
       icon: Target,
-      title: "Naš cilj",
+      title: "Zasnova in konstruiranje",
+      description: "Prevzem presežnih kapacitet, dolgoročna partnerstva in kakovostna izvedba",
+    },
+    {
+      icon: Target,
+      title: "Celostno vodenje projektov",
+      description: "Prevzem presežnih kapacitet, dolgoročna partnerstva in kakovostna izvedba",
+    },
+    {
+      icon: Target,
+      title: "En sogovornik, jasen potek projekta",
+      description: "Prevzem presežnih kapacitet, dolgoročna partnerstva in kakovostna izvedba",
+    },
+    {
+      icon: Target,
+      title: "Fleksibilna ekipa z močnim zaledjem partnerjev",
+      description: "Prevzem presežnih kapacitet, dolgoročna partnerstva in kakovostna izvedba",
+    },
+    {
+      icon: Target,
+      title: "Odgovornost od ideje do dobave",
       description: "Prevzem presežnih kapacitet, dolgoročna partnerstva in kakovostna izvedba",
     },
   ];
@@ -100,7 +120,7 @@ export default function AboutUs() {
         >
           <div className="flex flex-col-reverse justify-between items-start gap-12 lg:flex-row lg:gap-0">
             {/* Left Side - Slider */}
-            <div className="w-full relative lg:w-1/4">
+            <div className="w-full relative lg:w-1/3">
               <div
                 className="relative w-full flex overflow-hidden bg-black/90 backdrop-blur-sm border border-white/10 rounded-[15px] aspect-[4/5] lg:aspect-[3/4] lg:rounded-[29px] cursor-pointer"
                 onClick={() => {
@@ -108,8 +128,8 @@ export default function AboutUs() {
                   setProgress(0);
                 }}
               >
-                {/* Logo and Company Name */}
-                <div className="absolute top-3 left-6 flex items-center justify-start gap-3 z-20">
+
+                {/*  <div className="absolute top-3 left-6 flex items-center justify-start gap-3 z-20">
                   <div className="w-10 h-10 rounded-full bg-black border border-white/20 flex items-center justify-center overflow-hidden">
                     <Image
                       src="/images/logos/intenia-logo.png"
@@ -120,7 +140,7 @@ export default function AboutUs() {
                     />
                   </div>
                   <p className="font-bold text-white/90 text-sm lg:text-base">Intenia Engineering</p>
-                </div>
+                </div> */}
 
                 {/* Slide Indicators */}
                 <div className="z-20 w-full flex justify-evenly gap-2 absolute bottom-8 left-0 px-8 pointer-events-none">
@@ -164,11 +184,11 @@ export default function AboutUs() {
                           <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                             {fact.title}
                           </h4>
-                          {fact.description && (
+                          {/*    {fact.description && (
                             <p className="text-base sm:text-lg md:text-xl text-white/70 mt-4 max-w-md mx-auto">
                               {fact.description}
                             </p>
-                          )}
+                          )} */}
                         </div>
                       </motion.div>
                     );
@@ -199,7 +219,7 @@ export default function AboutUs() {
                 </p>
 
                 {/* Service Tags */}
-                <div className="w-fit">
+                {/*  <div className="w-fit">
                   <div className="inline-flex flex-wrap gap-3 mt-6 lg:mt-10">
                     <div className="font-bold text-sm sm:text-base text-nowrap rounded-full px-4 py-2 border border-white/50 text-white">
                       Inženirstvo
@@ -214,7 +234,7 @@ export default function AboutUs() {
                       Posredovanje
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

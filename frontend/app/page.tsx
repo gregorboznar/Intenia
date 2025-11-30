@@ -87,7 +87,7 @@ const FaqSection = dynamic(() => import("@/components/faq"), {
   ssr: false,
 });
 
-const Cta = dynamic(() => import("@/components/cta"), {
+const ContactForm = dynamic(() => import("@/components/contact-form"), {
   ssr: false,
 });
 
@@ -150,7 +150,7 @@ export default function Home() {
         <FaqSection />
       </LazyLoad> */}
       <LazyLoad>
-        <Cta />
+        <ContactForm />
       </LazyLoad>
     </div>
   );

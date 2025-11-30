@@ -84,6 +84,13 @@ export default function DesktopNav() {
         </Link>
 
         <Link
+          href="/gallery"
+          className="text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 text-sm lg:text-base"
+        >
+          {t("gallery")}
+        </Link>
+
+        <Link
           href="/#kontakt"
           onClick={(e) => handleAnchorClick(e, '#kontakt')}
           className="text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 text-sm lg:text-base"

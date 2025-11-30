@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import NavDropdown from "./NavDropdown"
 import { cn } from "@/lib/utils"
@@ -11,12 +13,31 @@ type MobileNavProps = {
 }
 
 export default function MobileNav({ isOpen }: MobileNavProps) {
+  const pathname = usePathname()
+  const router = useRouter()
+  const t = useTranslations("nav")
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const productItems = ["Analitika", "Avtomatizacija", "Sodelovanje", "Varnost"]
   const solutionItems = ["Za startupe", "Za podjetja", "Za ekipe", "Za razvijalce"]
-  
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const hash = href
+
+      if (pathname === '/') {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        router.push(`/${hash}`)
+      }
+    }
+  }
+
   return (
-    <div 
+    <div
       className={cn(
         "md:hidden fixed inset-x-0 top-[60px] bg-black/95 backdrop-blur-lg border-t border-white/10 transition-all duration-300 overflow-hidden",
         isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0"
@@ -26,30 +47,42 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
         "container mx-auto px-3 py-4 flex flex-col gap-2 transition-all duration-300 overflow-y-auto",
         isOpen ? "translate-y-0" : "-translate-y-4"
       )}>
-        <NavDropdown 
-          id="mobileProducts"
-          label="Produkti" 
-          items={productItems}
-          isMobile={true}
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <NavDropdown 
-          id="mobileSolutions"
-          label="Rešitve" 
-          items={solutionItems}
-          isMobile={true}
-          activeDropdown={activeDropdown}
-          setActiveDropdown={setActiveDropdown}
-        />
-
-        <Link href="#pricing" className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10">
-          Cenik
+        <Link
+          href="/#o-nas"
+          onClick={(e) => handleAnchorClick(e, '#o-nas')}
+          className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
+        >
+          {t("about")}
         </Link>
 
-        <Link href="#testimonials" className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10">
-          Mnenja strank
+        <Link
+          href="/#nase-vrednote"
+          onClick={(e) => handleAnchorClick(e, '#nase-vrednote')}
+          className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
+        >
+          {t("values")}
+        </Link>
+
+        <Link
+          href="/products"
+          className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
+        >
+          {t("products")}
+        </Link>
+
+        <Link
+          href="/gallery"
+          className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
+        >
+          {t("gallery")}
+        </Link>
+
+        <Link
+          href="/#kontakt"
+          onClick={(e) => handleAnchorClick(e, '#kontakt')}
+          className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
+        >
+          {t("contact")}
         </Link>
 
         <div className="flex flex-col gap-2 pt-3">

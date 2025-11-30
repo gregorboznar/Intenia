@@ -8,19 +8,17 @@ const ContactForm = dynamic(() => import("@/components/contact-form"), {
   loading: () => <div className="min-h-[400px] bg-black" />,
 })
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-  category: string;
+interface GalleryImage {
+  ID: string;
+  url: string;
+  title?: string;
 }
 
-interface ProductsClientProps {
-  products: Product[];
+interface GalleryClientProps {
+  images: GalleryImage[];
 }
 
-export default function ProductsClient({ products }: ProductsClientProps) {
+export default function GalleryClient({ images }: GalleryClientProps) {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,10 +31,10 @@ export default function ProductsClient({ products }: ProductsClientProps) {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
-      y: 0,
+      scale: 1,
     },
   }
 
@@ -44,7 +42,7 @@ export default function ProductsClient({ products }: ProductsClientProps) {
     <div className="min-h-screen bg-black text-white">
       <section
         className="relative py-12 sm:py-16 md:py-24 bg-black overflow-hidden"
-        aria-labelledby="products-heading"
+        aria-labelledby="gallery-heading"
       >
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-primary/10 rounded-full blur-[100px]"></div>
@@ -60,11 +58,11 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             transition={{ duration: 0.5 }}
             className="text-center mb-8 sm:mb-12"
           >
-            <h1 id="products-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-              Naši Produkti
+            <h1 id="gallery-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+              Galerija
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-              Obsežne rešitve, prilagojene vašim industrijskim potrebam
+              Naši projekti in dosežki
             </p>
           </motion.div>
 
@@ -75,36 +73,24 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           >
-            {products.map((product) => (
+            {images.map((image) => (
               <motion.div
-                key={product.id}
+                key={image.ID}
                 variants={itemVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="group relative"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r  to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative   rounded-lg p-5 sm:p-6 h-full flex flex-col hover:border-brand-primary-light/50 transition-colors">
-                  <div className="mb-4">
-                    <div className="relative w-full h-96 mb-3 transition-transform duration-300 overflow-hidden">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    </div>
-                    <span className="text-xs text-brand-primary-light font-medium">
-                      {product.category}
-                    </span>
+                <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative rounded-lg overflow-hidden h-full">
+                  <div className="relative w-full h-64 sm:h-72 lg:h-80 transition-transform duration-300 group-hover:scale-105">
+                    <Image
+                      src={image.url}
+                      alt={image.title || "Gallery image"}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-brand-primary-light transition-colors">
-                    {product.name}
-                  </h3>
-                  <p
-                    className="text-sm sm:text-base text-white/70 mb-4 flex-grow"
-                    dangerouslySetInnerHTML={{ __html: product.description }}
-                  />
                 </div>
               </motion.div>
             ))}
