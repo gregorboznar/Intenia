@@ -3,11 +3,13 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Star, Sparkles } from "lucide-react"
 
 export default function ModernHero() {
   const parallaxRef = useRef<HTMLDivElement>(null)
+  const t = useTranslations("hero")
 
   useEffect(() => {
     let ticking = false;
@@ -64,9 +66,9 @@ export default function ModernHero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight"
             >
-              <span className="block">Inženirska odličnost</span>
+              <span className="block">{t("title1")}</span>
               <span className="bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
-                Inovativnost in kakovost
+                {t("title2")}
               </span>
             </motion.h1>
 
@@ -76,7 +78,7 @@ export default function ModernHero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg lg:text-xl text-white/70 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, konzultacijskih, proizvodnih in posredovalnih storitev. Naša misija je zagotavljati inovativne rešitve, ki presegajo pričakovanja strank, hkrati pa dajemo prednost trajnosti, varnosti in učinkovitosti.
+              {t("description")}
             </motion.p>
 
             <motion.div
@@ -86,11 +88,11 @@ export default function ModernHero() {
               className="flex flex-col max-w-[80%] mx-auto ml-0 sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
             >
               <Button className="bg-gradient-to-r from-brand-primary to-brand-primary-light hover:from-brand-primary-dark hover:to-brand-primary text-white border-0 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Začnite
+                {t("ctaStart")}
                 <ArrowRight className="ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Button>
               <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Kontaktirajte nas
+                {t("ctaContact")}
               </Button>
             </motion.div>
 
@@ -155,7 +157,7 @@ export default function ModernHero() {
                   >
                     <div className="flex items-center gap-1 sm:gap-2">
                       <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"></div>
-                      <span className="text-xs sm:text-sm font-medium">Sistem vklopljen</span>
+                      <span className="text-xs sm:text-sm font-medium">{t("systemOnline")}</span>
                     </div>
                   </motion.div>
 
@@ -167,7 +169,7 @@ export default function ModernHero() {
                   >
                     <div className="flex items-center gap-1 sm:gap-2">
                       <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-brand-primary animate-pulse"></div>
-                      <span className="text-xs">Obdelava podatkov...</span>
+                      <span className="text-xs">{t("processingData")}</span>
                     </div>
                   </motion.div>
                 </div>

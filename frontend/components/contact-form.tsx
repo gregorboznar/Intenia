@@ -8,6 +8,7 @@ export default function ContactForm() {
     name: "",
     email: "",
     info: "",
+    message: "",
     terms: false,
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -87,9 +88,7 @@ export default function ContactForm() {
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-[29px] blur-lg opacity-70"></div>
                 <div className="relative bg-white rounded-[29px] rounded-br-none px-6 pt-10 pb-10 sm:pb-16 md:px-8 lg:px-8 lg:py-24">
-
                   <div className="container mx-0 px-0 sm:mx-auto sm:px-4 block items-center lg:flex">
-
                     <div className="w-full lg:w-1/3 mb-10 lg:mb-0">
                       <p className="relative pl-5 mb-2 text-base lg:mb-5 lg:text-lg inline-flex items-center">
                         <span className="absolute w-1.5 h-1.5 bg-brand-primary rounded-full left-0 top-1/2 -translate-y-1/2"></span>
@@ -102,13 +101,9 @@ export default function ContactForm() {
                         Z veseljem odgovorimo in se pogovorimo o morebitnem sodelovanju.
                       </h4>
                     </div>
-
-
                     <div className="w-full lg:w-2/3 lg:pl-4 xl:pl-8 2xl:pl-20">
                       <form onSubmit={handleSubmit} className="inquiry-submit">
-
                         <div className="grid gap-x-8 gap-y-10 mb-10 lg:gap-y-16 lg:grid-cols-2 lg:mb-16">
-
                           <div className="relative text-lg font-semibold">
                             <input
                               type="text"
@@ -132,8 +127,6 @@ export default function ContactForm() {
                               <p className="mt-4 text-red-500 text-sm font-normal">{errors.name}</p>
                             )}
                           </div>
-
-
                           <div className="relative text-lg font-semibold">
                             <input
                               type="email"
@@ -158,8 +151,6 @@ export default function ContactForm() {
                             )}
                           </div>
                         </div>
-
-                        {/* Project Info Textarea */}
                         <div className="grid gap-x-8 gap-y-16 mb-8 lg:mb-16">
                           <div className="relative text-lg font-semibold">
                             <textarea
@@ -183,10 +174,30 @@ export default function ContactForm() {
                             </label>
                           </div>
                         </div>
-
-                        {/* Checkbox and Submit Button Row */}
+                        <div className="grid gap-x-8 gap-y-16 mb-8 lg:mb-16">
+                          <div className="relative text-lg font-semibold">
+                            <textarea
+                              ref={textareaRef}
+                              name="message"
+                              id="message"
+                              value={formData.message}
+                              onChange={handleChange}
+                              placeholder=" "
+                              rows={1}
+                              className="block py-3 px-0 w-full text-black bg-transparent border-0 border-b border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black peer max-h-48 min-h-[39.25px] lg:min-h-[52px] resize-y overflow-hidden"
+                            />
+                            <label
+                              htmlFor="info"
+                              className={`absolute text-base lg:text-lg duration-300 pointer-events-none transform top-3 origin-[0] ${formData.info
+                                ? "scale-75 -translate-y-7 text-black"
+                                : "scale-100 translate-y-0 text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0"
+                                }`}
+                            >
+                              Sporočilo
+                            </label>
+                          </div>
+                        </div>
                         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-0 mt-8 lg:mt-16">
-                          {/* Privacy Checkbox */}
                           <div className="inline-flex items-start mr-0 sm:mr-5">
                             <label className="relative flex items-center rounded-full cursor-pointer" htmlFor="ContactTerms">
                               <input
@@ -228,8 +239,6 @@ export default function ContactForm() {
                           {errors.terms && (
                             <p className="text-red-500 text-sm font-normal lg:hidden">{errors.terms}</p>
                           )}
-
-                          {/* Submit Button */}
                           <div className="relative group inline-flex items-center font-semibold text-white hidden lg:block">
                             <svg width="0" height="0" className="absolute hidden" colorInterpolationFilters="sRGB">
                               <defs>
@@ -247,7 +256,6 @@ export default function ContactForm() {
                               </defs>
                             </svg>
                             <button
-
                               type="submit"
                               disabled={isSubmitting}
                               className="inline-flex relative group outline-none focus:outline-none disabled:opacity-50"
@@ -272,11 +280,9 @@ export default function ContactForm() {
                             </button>
                           </div>
                         </div>
-
                         {errors.terms && (
                           <p className="mt-4 text-red-500 text-sm font-normal hidden lg:block">{errors.terms}</p>
                         )}
-
                         {isSuccess && (
                           <p className="mt-4 text-green-600 text-sm font-normal">
                             Povpraševanje je bilo uspešno oddano!
@@ -287,7 +293,6 @@ export default function ContactForm() {
                   </div>
                 </div>
               </div>
-
               <div className="w-full h-24 flex justify-end items-start relative -top-px">
                 <div className="flex-1 h-full relative right-0 top-px">
                   <div className="rounded-tr-[29px] w-full h-full absolute bg-black z-[1]"></div>
@@ -306,7 +311,6 @@ export default function ContactForm() {
                       </defs>
                     </svg>
                     <button
-
                       type="submit"
                       disabled={isSubmitting}
                       className="inline-flex relative group outline-none focus:outline-none"

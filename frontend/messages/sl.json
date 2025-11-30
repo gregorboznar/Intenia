@@ -5,5 +5,96 @@
     "products": "Produkti",
     "gallery": "Galerija",
     "contact": "Kontakt"
+  },
+  "footer": {
+    "copyright": "Vse pravice pridržane.",
+    "privacyAndCookies": "Politika zasebnosti in piškotkov"
+  },
+  "hero": {
+    "title1": "Inženirska odličnost",
+    "title2": "Inovativnost in kakovost",
+    "description": "Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, konzultacijskih, proizvodnih in posredovalnih storitev. Naša misija je zagotavljati inovativne rešitve, ki presegajo pričakovanja strank, hkrati pa dajemo prednost trajnosti, varnosti in učinkovitosti.",
+    "ctaStart": "Začnite",
+    "ctaContact": "Kontaktirajte nas",
+    "systemOnline": "Sistem vklopljen",
+    "processingData": "Obdelava podatkov..."
+  },
+  "pricing": {
+    "heading": "Enostavno, transparentno cenjenje",
+    "subheading": "Izberite načrt, ki najbolje ustreza vašemu podjetju. Vsi načrti vključujejo naše osnovne funkcije.",
+    "annual": "Letno",
+    "monthly": "Mesečno",
+    "saveLabel": "Prihranite 20%",
+    "starter": {
+      "name": "Začetni",
+      "description": "Idealno za posameznike in majhne ekipe",
+      "cta": "Začnite",
+      "features": {
+        "teamMembers": "5 članov ekipe",
+        "storage": "10GB prostora",
+        "analytics": "Osnovna analitika",
+        "support": "E-poštna podpora",
+        "projects": "2 projekta"
+      }
+    },
+    "professional": {
+      "name": "Profesionalni",
+      "description": "Idealno za rastoča podjetja",
+      "cta": "Začnite",
+      "popular": "Najbolj priljubljeno",
+      "features": {
+        "teamMembers": "15 članov ekipe",
+        "storage": "50GB prostora",
+        "analytics": "Napredna analitika",
+        "support": "Prioritetna podpora",
+        "api": "API dostop",
+        "integrations": "Prilagojene integracije",
+        "projects": "Neomejeno projektov"
+      }
+    },
+    "enterprise": {
+      "name": "Podjetniški",
+      "description": "Za velike organizacije s kompleksnimi potrebami",
+      "cta": "Kontaktirajte prodajo",
+      "features": {
+        "teamMembers": "Neomejeno članov ekipe",
+        "storage": "500GB prostora",
+        "analytics": "Podjetniška analitika",
+        "support": "24/7 namenska podpora",
+        "security": "Napredna varnost",
+        "development": "Prilagojen razvoj",
+        "onboarding": "Pomoč pri uvajanju",
+        "sla": "Garancija SLA"
+      }
+    },
+    "perYear": "leto",
+    "perMonth": "mesec",
+    "trialNotice": "Vsi načrti vključujejo 14-dnevno brezplačno preizkušnjo. Kreditna kartica ni potrebna."
+  },
+  "cookies": {
+    "title": "Politika piškotkov",
+    "aboutTitle": "O piškotkih",
+    "aboutDescription": "Piškotki so majhne besedilne datoteke, ki se prenesejo na vaš računalnik, tablico ali mobilni telefon, ko obiščete spletno stran ali aplikacijo. Spletno mesto lahko pridobi te piškotke iz vašega spletnega brskalnika (npr. Internet Explorer, Mozilla Firefox ali Google Chrome) ob vsakem obisku, zato vas lahko prepozna, zapomni si vaše preference in vam zagotovi varnejšo spletno izkušnjo.\n\nNa splošno so piškotki zelo uporabni in predstavljajo običajno metodo, ki jo uporablja skoraj vsaka spletna stran, ki jo obiščete, saj pomagajo, da je vaša spletna izkušnja čim bolj gladka. Iz varnostnih razlogov številne spletne strani sploh ne bodo delovale brez uporabe piškotkov (ali drugih podobnih tehnologij, kot so 'web beacons' ali 'tags').\n\nPiškotki na splošno ne hranijo nobenih informacij za identifikacijo posamezne osebe, temveč se uporabljajo za identifikacijo brskalnika na posameznem računalnik.\n\nČe želite, lahko piškotke omejite, blokirate ali izbrišete s spremembo nastavitev brskalnika, vendar to lahko pomeni, da spletna stran ne bo delovala pravilno.\n\nZa več informacij o piškotkih in njihovem vplivu na vas in vaše brskanje obiščite www.aboutcookies.org.",
+    "cookiesWeUse": "Piškotki, ki jih uporabljamo",
+    "cookiesWeUseDescription": "Piškotki, uporabljeni za razlikovanje števila uporabnikov na spletni strani:",
+    "gaDesc": "(poteče po 2 letih)",
+    "gatDesc": "(poteče v 1 minuti)",
+    "gidDesc": "(poteče čez 1 dan)",
+    "languageCookie": "Piškotek, ki ga uporabljamo za poznavanje vašega prednostnega jezika:",
+    "i18nDesc": "(poteče čez 1 leto)",
+    "managingTitle": "Upravljanje piškotkov",
+    "managingDescription": "Večina spletnih brskalnikov vam omogoča, da izbrišete piškotke s trdega diska računalnika, blokirate vse piškotke (ali samo piškotke tretjih oseb) ali vas opozorijo, preden se piškotek shrani v vašo napravo.\n\nOpomnili bi vas, da če se odločite za blokiranje vseh piškotkov, naša stran ne bo delovala po namenu in ne boste mogli uporabljati ali dostopati do številnih storitev, ki jih ponujamo. Če ste blokirali vse piškotke in želite izkoristiti vse funkcije in storitve, ki jih ponujamo, boste morali omogočiti piškotke. To lahko storite v svojem brskalniku.\n\nNamesto da blokirate vse piškotke, se lahko odločite, da blokirate samo piškotke tretjih oseb, kar bo spletni strani še vedno omogočilo pravilno delovanje.",
+    "faqTitle": "Pogosto zastavljena vprašanja",
+    "faq1": "Kaj točno so piškotki in zakaj se uporabljajo?",
+    "faq2": "Ali piškotki shranjujejo moje osebne podatke?",
+    "faq3": "Kakšne vrste piškotkov uporablja Intenia?",
+    "faq4": "Ali lahko blokiram ali izbrišem piškotke z vaše strani?",
+    "faq5": "Ali so piškotki varni za mojo napravo?",
+    "faq2Answer": "Piškotki običajno ne shranjujejo osebnih podatkov, kot so vaše ime ali e-poštni naslov. Predvsem shranjujejo tehnične podatke, kot so ID seje, nastavitve in vedenje pri brskanju, da izboljšajo vašo izkušnjo.",
+    "faq3Answer": "Uporabljamo analitične piškotke (_ga, _gat, _gid) za razumevanje prometa na spletni strani in piškotek jezikovne preference (intenia-language), da si zapomnimo vašo izbiro jezika.",
+    "faq5Answer": "Da, piškotki so varni. So preproste besedilne datoteke, ki ne morejo izvajati kode ali prenašati virusov. Pomagajo spletnim stranem delovati pravilno in varno.",
+    "notificationText": "Ta stran <link1>uporablja piškotke</link1>. Z nadaljnjo uporabo te strani se strinjate z našo <link2>politiko piškotkov</link2>.",
+    "notificationTitle": "Piškotki",
+    "closeNotification": "Zapri obvestilo o piškotkih"
   }
 }

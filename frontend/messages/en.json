@@ -5,5 +5,96 @@
     "products": "Products",
     "gallery": "Gallery",
     "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "privacyAndCookies": "Privacy and Cookies Policy"
+  },
+  "hero": {
+    "title1": "Engineering Excellence",
+    "title2": "Innovation and Quality",
+    "description": "Intenia Engineering d.o.o., based in Medvode, Slovenia, excels in providing engineering, consulting, manufacturing and intermediary services. Our mission is to provide innovative solutions that exceed customer expectations while prioritizing sustainability, safety and efficiency.",
+    "ctaStart": "Get Started",
+    "ctaContact": "Contact Us",
+    "systemOnline": "System Online",
+    "processingData": "Processing data..."
+  },
+  "pricing": {
+    "heading": "Simple, Transparent Pricing",
+    "subheading": "Choose the plan that best suits your business. All plans include our core features.",
+    "annual": "Annual",
+    "monthly": "Monthly",
+    "saveLabel": "Save 20%",
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect for individuals and small teams",
+      "cta": "Get Started",
+      "features": {
+        "teamMembers": "5 team members",
+        "storage": "10GB storage",
+        "analytics": "Basic analytics",
+        "support": "Email support",
+        "projects": "2 projects"
+      }
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "Ideal for growing businesses",
+      "cta": "Get Started",
+      "popular": "Most Popular",
+      "features": {
+        "teamMembers": "15 team members",
+        "storage": "50GB storage",
+        "analytics": "Advanced analytics",
+        "support": "Priority support",
+        "api": "API access",
+        "integrations": "Custom integrations",
+        "projects": "Unlimited projects"
+      }
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "For large organizations with complex needs",
+      "cta": "Contact Sales",
+      "features": {
+        "teamMembers": "Unlimited team members",
+        "storage": "500GB storage",
+        "analytics": "Enterprise analytics",
+        "support": "24/7 dedicated support",
+        "security": "Advanced security",
+        "development": "Custom development",
+        "onboarding": "Onboarding assistance",
+        "sla": "SLA guarantee"
+      }
+    },
+    "perYear": "year",
+    "perMonth": "month",
+    "trialNotice": "All plans include a 14-day free trial. No credit card required."
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "aboutTitle": "About Cookies",
+    "aboutDescription": "Cookies are small text files which are downloaded to your computer, tablet, or mobile phone when you visit a website or application. The website or application may retrieve these cookies from your web browser (e.g., Internet Explorer, Mozilla Firefox, or Google Chrome) each time you visit, so they can recognize you, remember your preferences, and provide you with a more secure online experience.\n\nGenerally, cookies are very useful and are a common method used by almost every website you visit because they help to make your online experience as smooth as possible. For security reasons, many websites will not function at all without the use of cookies (or other similar technologies, such as 'web beacons' or 'tags').\n\nCookies generally do not hold any information to identify an individual person, but are instead used to identify a browser on an individual machine.\n\nIf you prefer, you can restrict, block, or delete cookies by changing your browser settings, but that may mean that the website won't work properly.\n\nFor more information about cookies and their impact on you and your browsing, visit www.aboutcookies.org.",
+    "cookiesWeUse": "Cookies We Use",
+    "cookiesWeUseDescription": "Cookies used to distinguish the amount of users on the website:",
+    "gaDesc": "(expires after 2 years)",
+    "gatDesc": "(expires in 1 minute)",
+    "gidDesc": "(expires in 1 day)",
+    "languageCookie": "Cookie we use to know your preferred language:",
+    "i18nDesc": "(expires in 1 year)",
+    "managingTitle": "Managing Cookies",
+    "managingDescription": "Most internet browsers allow you to erase cookies from your computer hard drive, block all cookies (or just third-party cookies), or warn you before a cookie is stored on your device.\n\nPlease note, if you choose to block all cookies, our site will not function as intended, and you will not be able to use or access many of the services we provide. If you have blocked all cookies and wish to make full use of the features and services we offer, you will need to enable your cookies. You can do this in your browser.\n\nRather than blocking all cookies, you can choose to only block third-party cookies, which will still allow our website to function as intended.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq1": "What exactly are cookies and why are they used?",
+    "faq2": "Do cookies store my personal information?",
+    "faq3": "What types of cookies does Intenia use?",
+    "faq4": "Can I block or delete cookies from your site?",
+    "faq5": "Are cookies safe for my device?",
+    "faq2Answer": "Cookies do not typically store personal information like your name or email address. They primarily store technical data such as session IDs, preferences, and browsing behavior to improve your experience.",
+    "faq3Answer": "We use analytics cookies (_ga, _gat, _gid) to understand website traffic and a language preference cookie (intenia-language) to remember your language choice.",
+    "faq5Answer": "Yes, cookies are safe. They are simple text files that cannot execute code or carry viruses. They help websites function properly and securely.",
+    "notificationText": "This page <link1>uses cookies</link1>. By continuing to use this site, you agree to use our <link2>cookie policy</link2>.",
+    "notificationTitle": "Cookies",
+    "closeNotification": "Close cookie notification"
   }
 }

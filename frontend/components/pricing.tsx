@@ -2,58 +2,60 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 export default function ModernPricing() {
   const [annual, setAnnual] = useState(true);
+  const t = useTranslations("pricing");
 
   const plans = [
     {
-      name: "Začetni",
-      description: "Idealno za posameznike in majhne ekipe",
+      name: t("starter.name"),
+      description: t("starter.description"),
       price: annual ? 29 : 39,
       features: [
-        "5 članov ekipe",
-        "10GB prostora",
-        "Osnovna analitika",
-        "E-poštna podpora",
-        "2 projekta",
+        t("starter.features.teamMembers"),
+        t("starter.features.storage"),
+        t("starter.features.analytics"),
+        t("starter.features.support"),
+        t("starter.features.projects"),
       ],
-      cta: "Začnite",
+      cta: t("starter.cta"),
       popular: false,
     },
     {
-      name: "Profesionalni",
-      description: "Idealno za rastoča podjetja",
+      name: t("professional.name"),
+      description: t("professional.description"),
       price: annual ? 79 : 99,
       features: [
-        "15 članov ekipe",
-        "50GB prostora",
-        "Napredna analitika",
-        "Prioritetna podpora",
-        "API dostop",
-        "Prilagojene integracije",
-        "Neomejeno projektov",
+        t("professional.features.teamMembers"),
+        t("professional.features.storage"),
+        t("professional.features.analytics"),
+        t("professional.features.support"),
+        t("professional.features.api"),
+        t("professional.features.integrations"),
+        t("professional.features.projects"),
       ],
-      cta: "Začnite",
+      cta: t("professional.cta"),
       popular: true,
     },
     {
-      name: "Podjetniški",
-      description: "Za velike organizacije s kompleksnimi potrebami",
+      name: t("enterprise.name"),
+      description: t("enterprise.description"),
       price: annual ? 149 : 199,
       features: [
-        "Neomejeno članov ekipe",
-        "500GB prostora",
-        "Podjetniška analitika",
-        "24/7 namenska podpora",
-        "Napredna varnost",
-        "Prilagojen razvoj",
-        "Pomoč pri uvajanju",
-        "Garancija SLA",
+        t("enterprise.features.teamMembers"),
+        t("enterprise.features.storage"),
+        t("enterprise.features.analytics"),
+        t("enterprise.features.support"),
+        t("enterprise.features.security"),
+        t("enterprise.features.development"),
+        t("enterprise.features.onboarding"),
+        t("enterprise.features.sla"),
       ],
-      cta: "Kontaktirajte prodajo",
+      cta: t("enterprise.cta"),
       popular: false,
     },
   ];
@@ -82,11 +84,10 @@ export default function ModernPricing() {
             id="pricing-heading"
             className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4"
           >
-            Enostavno, transparentno cenjenje
+            {t("heading")}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
-            Izberite načrt, ki najbolje ustreza vašemu podjetju. Vsi načrti vključujejo
-            naše osnovne funkcije.
+            {t("subheading")}
           </p>
 
           <div className="relative flex items-center justify-center mt-6 sm:mt-8">
@@ -98,18 +99,18 @@ export default function ModernPricing() {
                   className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${annual ? "text-white" : "text-white/70"
                     }`}
                   aria-pressed={annual}
-                  aria-label="Letno obračunavanje"
+                  aria-label={t("annual")}
                 >
-                  Letno
+                  {t("annual")}
                 </button>
                 <button
                   onClick={() => setAnnual(false)}
                   className={`relative z-10 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-white ${!annual ? "text-white" : "text-white/70"
                     }`}
                   aria-pressed={!annual}
-                  aria-label="Mesečno obračunavanje"
+                  aria-label={t("monthly")}
                 >
-                  Mesečno
+                  {t("monthly")}
                 </button>
                 <div
                   className={`absolute top-1 left-1 ${annual ? "w-[calc(50%-12px)]" : "w-[calc(50%-3px)]"
@@ -124,7 +125,7 @@ export default function ModernPricing() {
 
             {annual && (
               <div className="absolute sm:relative -bottom-8 sm:bottom-auto ml-3 bg-gradient-to-r from-brand-primary to-brand-primary-light text-white text-xs font-bold px-2 py-1 rounded-full">
-                Prihranite 20%
+                {t("saveLabel")}
               </div>
             )}
           </div>
@@ -144,7 +145,7 @@ export default function ModernPricing() {
               {plan.popular && (
                 <div className="absolute -top-3 left-0 right-0 flex justify-center">
                   <div className="bg-gradient-to-r from-brand-primary to-brand-primary-light text-white text-xs font-bold px-3 py-1 rounded-full z-50">
-                    Najbolj priljubljeno
+                    {t("professional.popular")}
                   </div>
                 </div>
               )}
@@ -170,7 +171,7 @@ export default function ModernPricing() {
                       ${plan.price}
                     </span>
                     <span className="text-white/70 ml-2 text-sm">
-                      /{annual ? "leto" : "mesec"}
+                      /{annual ? t("perYear") : t("perMonth")}
                     </span>
                   </div>
 
@@ -213,7 +214,7 @@ export default function ModernPricing() {
 
         <div className="mt-10 sm:mt-16 text-center">
           <p className="text-white/70 text-sm sm:text-base">
-            Vsi načrti vključujejo 14-dnevno brezplačno preizkušnjo. Kreditna kartica ni potrebna.
+            {t("trialNotice")}
           </p>
         </div>
       </div>

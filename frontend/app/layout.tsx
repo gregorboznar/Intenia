@@ -6,6 +6,7 @@ import { LanguageProvider } from "@/context/LanguageContext"
 import { IntlProvider } from "@/components/NextIntlProvider"
 import ModernHeader from "@/components/header"
 import ModernFooter from "@/components/footer"
+import CookieNotification from "@/components/cookie-notification"
 
 const rajdhani = Rajdhani({
   subsets: ["latin"],
@@ -59,6 +60,7 @@ export default function RootLayout({
               <ModernHeader />
               <main>{children}</main>
               <ModernFooter />
+              <CookieNotification />
             </IntlProvider>
           </LanguageProvider>
         </ThemeProvider>

@@ -5,8 +5,10 @@ import Image from "next/image"
 import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
+import { useTranslations } from "next-intl"
 
 export default function ModernFooter() {
+  const t = useTranslations("footer")
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [revealRadius, setRevealRadius] = useState(0)
@@ -270,10 +272,10 @@ export default function ModernFooter() {
         </div> */}
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Podjetje. Vse pravice pridržane.</p>
+          <p className="text-white/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Intenia Engineering. {t("copyright")}</p>
           <div className="flex gap-6">
-            <Link href="#" className="text-white/50 hover:text-white text-sm transition-colors">
-              Politika zasebnosti in piškotkov
+            <Link href="/cookies" className="text-white/50 hover:text-white text-sm transition-colors">
+              {t("privacyAndCookies")}
             </Link>
           </div>
         </div>

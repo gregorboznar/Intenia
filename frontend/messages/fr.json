@@ -5,5 +5,96 @@
     "products": "Produits",
     "gallery": "Galerie",
     "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "Tous droits réservés.",
+    "privacyAndCookies": "Politique de confidentialité et cookies"
+  },
+  "hero": {
+    "title1": "Excellence en ingénierie",
+    "title2": "Innovation et qualité",
+    "description": "Intenia Engineering d.o.o., basée à Medvode, en Slovénie, excelle dans la fourniture de services d'ingénierie, de conseil, de fabrication et d'intermédiation. Notre mission est de fournir des solutions innovantes qui dépassent les attentes des clients tout en privilégiant la durabilité, la sécurité et l'efficacité.",
+    "ctaStart": "Commencer",
+    "ctaContact": "Contactez-nous",
+    "systemOnline": "Système en ligne",
+    "processingData": "Traitement des données..."
+  },
+  "pricing": {
+    "heading": "Tarification simple et transparente",
+    "subheading": "Choisissez le plan qui convient le mieux à votre entreprise. Tous les plans incluent nos fonctionnalités de base.",
+    "annual": "Annuel",
+    "monthly": "Mensuel",
+    "saveLabel": "Économisez 20%",
+    "starter": {
+      "name": "Démarrage",
+      "description": "Parfait pour les particuliers et les petites équipes",
+      "cta": "Commencer",
+      "features": {
+        "teamMembers": "5 membres d'équipe",
+        "storage": "10 Go de stockage",
+        "analytics": "Analyses de base",
+        "support": "Support par e-mail",
+        "projects": "2 projets"
+      }
+    },
+    "professional": {
+      "name": "Professionnel",
+      "description": "Idéal pour les entreprises en croissance",
+      "cta": "Commencer",
+      "popular": "Le plus populaire",
+      "features": {
+        "teamMembers": "15 membres d'équipe",
+        "storage": "50 Go de stockage",
+        "analytics": "Analyses avancées",
+        "support": "Support prioritaire",
+        "api": "Accès API",
+        "integrations": "Intégrations personnalisées",
+        "projects": "Projets illimités"
+      }
+    },
+    "enterprise": {
+      "name": "Entreprise",
+      "description": "Pour les grandes organisations aux besoins complexes",
+      "cta": "Contacter les ventes",
+      "features": {
+        "teamMembers": "Membres d'équipe illimités",
+        "storage": "500 Go de stockage",
+        "analytics": "Analyses d'entreprise",
+        "support": "Support dédié 24/7",
+        "security": "Sécurité avancée",
+        "development": "Développement personnalisé",
+        "onboarding": "Aide à l'intégration",
+        "sla": "Garantie SLA"
+      }
+    },
+    "perYear": "an",
+    "perMonth": "mois",
+    "trialNotice": "Tous les plans incluent un essai gratuit de 14 jours. Aucune carte de crédit requise."
+  },
+  "cookies": {
+    "title": "Politique de cookies",
+    "aboutTitle": "À propos des cookies",
+    "aboutDescription": "Les cookies sont de petits fichiers texte qui sont téléchargés sur votre ordinateur, tablette ou téléphone mobile lorsque vous visitez un site web ou une application. Le site web ou l'application peut récupérer ces cookies depuis votre navigateur web (par exemple, Internet Explorer, Mozilla Firefox ou Google Chrome) à chaque visite, afin de vous reconnaître, mémoriser vos préférences et vous offrir une expérience en ligne plus sécurisée.\n\nEn général, les cookies sont très utiles et constituent une méthode courante utilisée par presque tous les sites web que vous visitez, car ils contribuent à rendre votre expérience en ligne aussi fluide que possible. Pour des raisons de sécurité, de nombreux sites web ne fonctionneront pas du tout sans l'utilisation de cookies (ou d'autres technologies similaires, telles que les 'web beacons' ou 'tags').\n\nLes cookies ne contiennent généralement aucune information permettant d'identifier une personne individuelle, mais sont plutôt utilisés pour identifier un navigateur sur une machine individuelle.\n\nSi vous le souhaitez, vous pouvez restreindre, bloquer ou supprimer les cookies en modifiant les paramètres de votre navigateur, mais cela peut signifier que le site web ne fonctionnera pas correctement.\n\nPour plus d'informations sur les cookies et leur impact sur vous et votre navigation, visitez www.aboutcookies.org.",
+    "cookiesWeUse": "Cookies que nous utilisons",
+    "cookiesWeUseDescription": "Cookies utilisés pour distinguer le nombre d'utilisateurs sur le site web:",
+    "gaDesc": "(expire après 2 ans)",
+    "gatDesc": "(expire en 1 minute)",
+    "gidDesc": "(expire en 1 jour)",
+    "languageCookie": "Cookie que nous utilisons pour connaître votre langue préférée:",
+    "i18nDesc": "(expire en 1 an)",
+    "managingTitle": "Gestion des cookies",
+    "managingDescription": "La plupart des navigateurs Internet vous permettent d'effacer les cookies de votre disque dur, de bloquer tous les cookies (ou seulement les cookies tiers), ou de vous avertir avant qu'un cookie ne soit stocké sur votre appareil.\n\nVeuillez noter que si vous choisissez de bloquer tous les cookies, notre site ne fonctionnera pas comme prévu et vous ne pourrez pas utiliser ou accéder à de nombreux services que nous fournissons. Si vous avez bloqué tous les cookies et souhaitez profiter pleinement des fonctionnalités et services que nous offrons, vous devrez activer vos cookies. Vous pouvez le faire dans votre navigateur.\n\nPlutôt que de bloquer tous les cookies, vous pouvez choisir de bloquer uniquement les cookies tiers, ce qui permettra toujours à notre site web de fonctionner comme prévu.",
+    "faqTitle": "Questions fréquemment posées",
+    "faq1": "Que sont exactement les cookies et pourquoi sont-ils utilisés?",
+    "faq2": "Les cookies stockent-ils mes informations personnelles?",
+    "faq3": "Quels types de cookies Intenia utilise-t-il?",
+    "faq4": "Puis-je bloquer ou supprimer les cookies de votre site?",
+    "faq5": "Les cookies sont-ils sûrs pour mon appareil?",
+    "faq2Answer": "Les cookies ne stockent généralement pas d'informations personnelles comme votre nom ou votre adresse e-mail. Ils stockent principalement des données techniques telles que les identifiants de session, les préférences et le comportement de navigation pour améliorer votre expérience.",
+    "faq3Answer": "Nous utilisons des cookies d'analyse (_ga, _gat, _gid) pour comprendre le trafic du site web et un cookie de préférence linguistique (intenia-language) pour mémoriser votre choix de langue.",
+    "faq5Answer": "Oui, les cookies sont sûrs. Ce sont de simples fichiers texte qui ne peuvent pas exécuter de code ni transporter de virus. Ils aident les sites web à fonctionner correctement et en toute sécurité.",
+    "notificationText": "Cette page <link1>utilise des cookies</link1>. En continuant à utiliser ce site, vous acceptez notre <link2>politique de cookies</link2>.",
+    "notificationTitle": "Cookies",
+    "closeNotification": "Fermer la notification de cookies"
   }
 }

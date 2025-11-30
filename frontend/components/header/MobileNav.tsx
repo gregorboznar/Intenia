@@ -1,12 +1,23 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useTranslations } from "next-intl"
-import { Button } from "@/components/ui/button"
-import NavDropdown from "./NavDropdown"
+import { useLanguage } from "@/context/LanguageContext"
 import { cn } from "@/lib/utils"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+const languages = [
+  { code: "sl", label: "Slovenščina", flag: "🇸🇮" },
+  { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "fr", label: "Français", flag: "🇫🇷" },
+]
 
 type MobileNavProps = {
   isOpen: boolean
@@ -15,10 +26,8 @@ type MobileNavProps = {
 export default function MobileNav({ isOpen }: MobileNavProps) {
   const pathname = usePathname()
   const router = useRouter()
+  const { selectedLanguage, setSelectedLanguage } = useLanguage()
   const t = useTranslations("nav")
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const productItems = ["Analitika", "Avtomatizacija", "Sodelovanje", "Varnost"]
-  const solutionItems = ["Za startupe", "Za podjetja", "Za ekipe", "Za razvijalce"]
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -35,6 +44,12 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
       }
     }
   }
+
+  const handleLanguageChange = (value: string) => {
+    setSelectedLanguage(value as "sl" | "en" | "fr")
+  }
+
+  const currentLanguage = languages.find(lang => lang.code === selectedLanguage) || languages[0]
 
   return (
     <div
@@ -55,13 +70,13 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           {t("about")}
         </Link>
 
-        <Link
+        {/*   <Link
           href="/#nase-vrednote"
           onClick={(e) => handleAnchorClick(e, '#nase-vrednote')}
           className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
         >
           {t("values")}
-        </Link>
+        </Link> */}
 
         <Link
           href="/products"
@@ -85,15 +100,30 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           {t("contact")}
         </Link>
 
-        <div className="flex flex-col gap-2 pt-3">
-          <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-10 active:bg-white/20">
-            Prijava
-          </Button>
-          <Button
-            className="bg-gradient-to-r from-brand-primary to-brand-primary-light hover:from-brand-primary-dark hover:to-brand-primary text-white border-0 h-10 shadow-lg shadow-brand-primary-light/20 active:opacity-90"
-          >
-            Začnite
-          </Button>
+        <div className="pt-3 border-t border-white/10 mt-2">
+          <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
+            <SelectTrigger className="w-full h-10 bg-white/5 border-white/10 text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200 [&>span:first-of-type]:hidden focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus:outline-none focus:border-white/10">
+              <SelectValue />
+              <div className="flex items-center gap-2">
+                <span>{currentLanguage.flag}</span>
+                <span className="text-sm">{currentLanguage.code.toUpperCase()}</span>
+              </div>
+            </SelectTrigger>
+            <SelectContent className="bg-black/95 backdrop-blur-sm border-white/10 text-white">
+              {languages.map((language) => (
+                <SelectItem
+                  key={language.code}
+                  value={language.code}
+                  className="hover:bg-white/10 cursor-pointer"
+                >
+                  <span className="flex items-center gap-2">
+                    <span className="text-lg">{language.flag}</span>
+                    <span>{language.code.toUpperCase()}</span>
+                  </span>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>

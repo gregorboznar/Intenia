@@ -128,20 +128,6 @@ export default function AboutUs() {
                   setProgress(0);
                 }}
               >
-
-                {/*  <div className="absolute top-3 left-6 flex items-center justify-start gap-3 z-20">
-                  <div className="w-10 h-10 rounded-full bg-black border border-white/20 flex items-center justify-center overflow-hidden">
-                    <Image
-                      src="/images/logos/intenia-logo.png"
-                      alt="Intenia Logo"
-                      width={24}
-                      height={24}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="font-bold text-white/90 text-sm lg:text-base">Intenia Engineering</p>
-                </div> */}
-
                 {/* Slide Indicators */}
                 <div className="z-20 w-full flex justify-evenly gap-2 absolute bottom-8 left-0 px-8 pointer-events-none">
                   {aboutUsFacts.map((_, index) => (
@@ -161,7 +147,6 @@ export default function AboutUs() {
                   ))}
                 </div>
 
-                {/* Slides Container */}
                 <div className="absolute top-0 left-0 w-full h-full rounded-[29px]">
                   {aboutUsFacts.map((fact, index) => {
                     return (
@@ -175,7 +160,7 @@ export default function AboutUs() {
                         }}
                         transition={{
                           duration: 0.6,
-                          ease: [0.4, 0, 0.2, 1] // Custom cubic-bezier for smoother animation
+                          ease: [0.4, 0, 0.2, 1]
                         }}
                         className={`absolute top-0 left-0 w-full h-full flex justify-center items-center px-6 sm:px-10 ${index === currentSlide ? "z-10" : "z-0 pointer-events-none"
                           }`}
@@ -184,11 +169,6 @@ export default function AboutUs() {
                           <h4 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                             {fact.title}
                           </h4>
-                          {/*    {fact.description && (
-                            <p className="text-base sm:text-lg md:text-xl text-white/70 mt-4 max-w-md mx-auto">
-                              {fact.description}
-                            </p>
-                          )} */}
                         </div>
                       </motion.div>
                     );
@@ -200,16 +180,6 @@ export default function AboutUs() {
             {/* Right Side - Text Content */}
             <div className="w-full lg:w-3/5 ">
               <div className="relative">
-                {/* Decorative Icons */}
-                {/*  <div className="relative flex items-center gap-3 mb-6">
-                  <div className="w-20 h-20 rounded-full border-[1.5px] border-white/50 relative z-20 bg-gradient-to-r from-brand-primary to-brand-primary-light flex items-center justify-center">
-                    <Users className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="w-20 h-20 rounded-full border-[1.5px] border-white/50 absolute top-0 left-12 bg-gradient-to-r from-brand-primary-light to-brand-primary flex items-center justify-center">
-                    <Network className="w-10 h-10 text-white" />
-                  </div>
-                </div> */}
-
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                   O nas
                 </h2>
@@ -217,52 +187,115 @@ export default function AboutUs() {
                 <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 lg:mb-12">
                   Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, konzultacijskih, proizvodnih in posredovalnih storitev. Naša misija je zagotavljati inovativne rešitve, ki presegajo pričakovanja strank, hkrati pa dajemo prednost trajnosti, varnosti in učinkovitosti.
                 </p>
-
-                {/* Service Tags */}
-                {/*  <div className="w-fit">
-                  <div className="inline-flex flex-wrap gap-3 mt-6 lg:mt-10">
-                    <div className="font-bold text-sm sm:text-base text-nowrap rounded-full px-4 py-2 border border-white/50 text-white">
-                      Inženirstvo
-                    </div>
-                    <div className="font-bold text-sm sm:text-base text-nowrap rounded-full px-4 py-2 border border-white/50 text-white">
-                      Proizvodnja
-                    </div>
-                    <div className="font-bold text-sm sm:text-base text-nowrap rounded-full px-4 py-2 border border-white/50 text-white">
-                      Konzultacije
-                    </div>
-                    <div className="font-bold text-sm sm:text-base text-nowrap rounded-full px-4 py-2 border border-white/50 text-white">
-                      Posredovanje
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Our Values Section */}
+        {/* New Sections */}
         <motion.div
-          id="nase-vrednote"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mt-20 lg:mt-40 scroll-mt-24"
+          className="mt-20 lg:mt-32"
         >
-          <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-              Naše vrednote
-            </h2>
+          {/* Kje delamo */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-20 lg:mb-32">
+            <div className="w-full lg:w-1/2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kje delamo in kaj prevzamemo</h3>
+              <p className="text-base sm:text-lg text-white/70 mb-6">
+                V središču našega dela sta inženiring in odgovornost do celotnega cikla: od prve analize in zasnove, prek izdelave in montaže, do dokumentacije in podpore po dobavi.
+              </p>
+              <p className="text-base sm:text-lg text-white/70">
+                Kjer je smiselno, vključimo preverjene kooperante in dobavitelje ter prevzamemo celotno koordinacijo. Tako naročnik dobi enega sogovornika in jasen potek.
+              </p>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10">
+                <Image src="/images/production-assembly.png" alt="Proizvodnja in montaža" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+          </div>
 
-            <p className="text-sm sm:text-base md:text-lg text-white/60 max-w-3xl mx-auto">
-              Pri Intenia spoštujemo štiri temeljne vrednote, ki zagotavljajo, da zagotavljamo praktične, učinkovite, okolju prijazne in varne rešitve, ki izboljšujejo zadovoljstvo strank in konkurenčnost.
-            </p>
+          {/* Kako delamo */}
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 mb-20 lg:mb-32">
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10">
+                <Image src="/images/engineering-plans.png" alt="Načrti in inženiring" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kako delamo – od ideje do izvedbe</h3>
+              <p className="text-base sm:text-lg text-white/70 mb-6">
+                Inženirske naloge vodimo celostno. Na podlagi zahtev, podatkov in standardov oblikujemo tehnično rešitev, ki optimizira učinkovitost in zagotovi varnost.
+              </p>
+              <p className="text-base sm:text-lg text-white/70 mb-6">
+                V proizvodnji skrbimo za natančnost in sledljivost. CNC obdelava, varjenje, površinske zaščite in sestava potekajo pod enotno kontrolo kakovosti. Montaža opreme je načrtovana, pravilno integrirana v obstoječe procese in preverjena.
+              </p>
+              <p className="text-base sm:text-lg text-white/70">
+                Po potrebi izvedemo revizije, nadgradnje linij in zamenjave sklopov, da podaljšamo življenjsko dobo opreme in dvignemo razpoložljivost.
+              </p>
+            </div>
+          </div>
+
+          {/* Naša načela */}
+          <div className="mb-20 lg:mb-32">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Naša načela</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
+                  <Target className="w-6 h-6 text-brand-primary" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4">Praktična vrednost</h4>
+                <p className="text-white/70">
+                  Našo kulturo vodijo jasno definirana načela. Rešitve morajo biti praktično uporabne in naročniku prinesti konkretno vrednost – bodisi v obliki višje zanesljivosti, manjših izpadov, nižjih stroškov ali lažjega vzdrževanja.
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
+                  <Shield className="w-6 h-6 text-brand-primary" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4">Racionalnost in varnost</h4>
+                <p className="text-white/70">
+                  Pri zasnovi smo racionalni. Namesto nepotrebnega kompliciranja iščemo tehnično utemeljeno, izvedljivo pot. Varnost obravnavamo kot osnovni pogoj. Upoštevamo veljavne direktive in standarde ter skrbimo, da so rešitve prijazne do uporabnikov.
+                </p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
+                  <Leaf className="w-6 h-6 text-brand-primary" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4">Trajnost in dolgoročnost</h4>
+                <p className="text-white/70">
+                  Trajnost vključujemo v izbiro materialov, v zasnovo konstrukcije in v način izdelave. Cilj je robustna in servisabilna oprema, ki ostane konkurenčna tudi dolgoročno. Ta merila držijo projekt v ravnotežju med kakovostjo, rokom in stroškom.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Kako začnemo sodelovanje */}
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 pb-20">
+            <div className="w-full lg:w-1/2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kako začnemo sodelovanje</h3>
+              <p className="text-base sm:text-lg text-white/70 mb-6">
+                Na domači strani so predstavljeni naši produkti in sklopi s ključnimi tehničnimi podatki, ki dajo občutek, kakšne izzive rešujemo in v kakšnem razponu delamo.
+              </p>
+              <p className="text-base sm:text-lg text-white/70 mb-8">
+                Če iščete zanesljivega izvajalca, ki prevzame odgovornost od ideje do dobave in deluje po načelu rešitve po meri naročnika, nas kontaktirajte prek obrazca. Vaše povpraševanje obravnavamo prednostno in v kratkem času preverimo, kako lahko z našim znanjem in mrežo partnerjev podprete vaš projekt.
+              </p>
+              <a href="#kontakt" className="inline-flex items-center justify-center px-8 py-3 text-base font-bold text-black bg-white rounded-full hover:bg-white/90 transition-colors">
+                Kontaktirajte nas
+              </a>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10">
+                <Image src="/images/business-handshake.png" alt="Sodelovanje" fill className="object-cover hover:scale-105 transition-transform duration-700" />
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
-
-      {/* Values List - Full Width */}
-      <div className="relative w-screen left-1/2 -translate-x-1/2">
+      {/*   <div className="relative w-screen left-1/2 -translate-x-1/2">
         <div className="w-full">
           <div className="mt-16 w-full">
             {values.map((value: any, index: number) => {
@@ -274,13 +307,10 @@ export default function AboutUs() {
                   key={index}
                   className={`group relative overflow-hidden block w-full border-b ${isFirst ? 'border-t' : ''} border-white/20`}
                 >
-                  {/* Title Section */}
                   <div className="will-change-transform text-center w-full px-4 overflow-hidden transition-transform ease-in-out duration-500 lg:group-hover:-translate-y-full">
                     <h3 className="py-8 lg:py-12 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal hover:opacity-75 active:opacity-75 lg:hover:opacity-100 lg:active:opacity-100 text-white">
                       {value.slTitle}
                     </h3>
-
-                    {/* Mobile Arrow Button */}
                     <div className="absolute transform -translate-y-1/2 top-1/2 right-10 w-10 h-10 inline-flex items-center font-semibold text-white lg:hidden">
                       <button
                         type="button"
@@ -305,8 +335,6 @@ export default function AboutUs() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Hover Content with Marquee */}
                   <div className="absolute top-0 left-0 w-full h-full bg-white text-black translate-y-[101%] ease-in-out duration-500 will-change-transform flex items-center transition-transform lg:group-hover:translate-y-0 overflow-hidden">
                     <div className="flex items-center will-change-transform animate-marquee2 whitespace-nowrap">
                       {[...Array(6)].map((_, i) => (
@@ -357,7 +385,7 @@ export default function AboutUs() {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
