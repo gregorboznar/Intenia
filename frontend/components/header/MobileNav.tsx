@@ -21,9 +21,10 @@ const languages = [
 
 type MobileNavProps = {
   isOpen: boolean
+  onClose: () => void
 }
 
-export default function MobileNav({ isOpen }: MobileNavProps) {
+export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname()
   const router = useRouter()
   const { selectedLanguage, setSelectedLanguage } = useLanguage()
@@ -42,11 +43,13 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
       } else {
         router.push(`/${hash}`)
       }
+      onClose()
     }
   }
 
   const handleLanguageChange = (value: string) => {
     setSelectedLanguage(value as "sl" | "en" | "fr")
+    onClose()
   }
 
   const currentLanguage = languages.find(lang => lang.code === selectedLanguage) || languages[0]
@@ -80,6 +83,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
 
         <Link
           href="/products"
+          onClick={onClose}
           className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
         >
           {t("products")}
@@ -87,6 +91,7 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
 
         <Link
           href="/gallery"
+          onClick={onClose}
           className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
         >
           {t("gallery")}
