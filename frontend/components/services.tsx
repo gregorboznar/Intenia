@@ -57,7 +57,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+          <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white">
             Naše storitve
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
@@ -88,7 +88,7 @@ export default function Services() {
                   <div className="flex-1 order-2 md:order-1 text-left">
                     <div className="flex items-start gap-4 mb-6">
                       <span className="text-brand-primary text-4xl md:text-5xl font-black tracking-tighter leading-none ">III</span>
-                      <h3 className="text-3xl md:text-5xl font-bold uppercase text-white leading-tight">
+                      <h3 className="text-3xl md:text-4xl font-bold uppercase text-white leading-tight">
                         {service.name}
                       </h3>
                     </div>

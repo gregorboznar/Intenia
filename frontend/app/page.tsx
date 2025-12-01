@@ -113,10 +113,13 @@ function LazyLoad({ children }: { children: React.ReactNode }) {
   return <div ref={ref}>{inView ? children : null}</div>;
 }
 
+import ScrollToTop from "@/components/scroll-to-top";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black px-0 sm:px-4 text-white">
       <ScrollRestoration />
+      <ScrollToTop />
       {/*   <Hero /> */}
       <HeroTest />
       {/* <LazyLoad>

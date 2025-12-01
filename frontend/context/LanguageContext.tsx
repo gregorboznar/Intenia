@@ -14,7 +14,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const STORAGE_KEY = "intenia-language"
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>("sl")
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>("en")
   const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {

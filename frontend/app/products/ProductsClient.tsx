@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import dynamic from "next/dynamic"
+import { useWPData } from "@/hooks/useWPData"
 
 const ContactForm = dynamic(() => import("@/components/contact-form"), {
   loading: () => <div className="min-h-[400px] bg-black" />,
@@ -16,11 +17,22 @@ interface Product {
   category: string;
 }
 
-interface ProductsClientProps {
-  products: Product[];
-}
+export default function ProductsClient() {
+  const { data: wpProducts, loading, error } = useWPData("new-products")
 
-export default function ProductsClient({ products }: ProductsClientProps) {
+  const products = wpProducts
+    .filter((product: any) => {
+      const showOnProductsPage = product.show_on_products_page;
+      return showOnProductsPage === "1" || showOnProductsPage === 1 || (Array.isArray(showOnProductsPage) && showOnProductsPage.length > 0);
+    })
+    .map((product: any) => ({
+      id: product.id,
+      name: product.products_title || product.title?.rendered || '',
+      description: product.short_description || product.content?.rendered?.substring(0, 150) || '',
+      image: product.image?.guid || product.acf?.image?.url || product.uagb_featured_image_src?.full?.[0] || '/images/placeholder.jpg',
+      category: product.acf?.category || 'Produkt',
+    }))
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,6 +50,31 @@ export default function ProductsClient({ products }: ProductsClientProps) {
       opacity: 1,
       y: 0,
     },
+  }
+
+  const ProductSkeleton = () => (
+    <div className="group relative">
+      <div className="absolute -inset-1 bg-gradient-to-r to-brand-primary-light rounded-xl blur-sm opacity-30"></div>
+      <div className="relative rounded-lg p-5 sm:p-6 h-full flex flex-col">
+        <div className="mb-4">
+          <div className="relative w-full h-96 mb-3 bg-white/10 animate-pulse rounded-lg"></div>
+        </div>
+        <div className="h-8 bg-white/10 animate-pulse rounded mb-2 w-3/4"></div>
+        <div className="h-4 bg-white/10 animate-pulse rounded mb-2 w-full"></div>
+        <div className="h-4 bg-white/10 animate-pulse rounded w-5/6"></div>
+      </div>
+    </div>
+  )
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Napaka pri nalaganju produktov</h1>
+          <p className="text-white/70">Prosimo, poskusite znova pozneje.</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -68,50 +105,58 @@ export default function ProductsClient({ products }: ProductsClientProps) {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
-          >
-            {products.map((product, index) => (
-              <motion.div
-                key={product.id}
-                variants={itemVariants}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group relative"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r  to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative   rounded-lg p-5 sm:p-6 h-full flex flex-col hover:border-brand-primary-light/50 transition-colors">
-                  <div className="mb-4">
-                    <div className="relative w-full h-96 mb-3 transition-transform duration-300 overflow-hidden">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        priority={index < 6}
-                        placeholder="blur"
-                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
+          {loading ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <ProductSkeleton key={i} />
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+            >
+              {products.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  variants={itemVariants}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-1 bg-gradient-to-r  to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative   rounded-lg p-5 sm:p-6 h-full flex flex-col hover:border-brand-primary-light/50 transition-colors">
+                    <div className="mb-4">
+                      <div className="relative w-full h-96 mb-3 transition-transform duration-300 overflow-hidden">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          priority={index < 6}
+                          placeholder="blur"
+                          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAwIiBoZWlnaHQ9IjQ3NSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                      {/*  <span className="text-xs text-brand-primary-light font-medium">
+                        {product.category}
+                      </span> */}
                     </div>
-                    <span className="text-xs text-brand-primary-light font-medium">
-                      {product.category}
-                    </span>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-brand-primary-light transition-colors">
+                      {product.name}
+                    </h3>
+                    <p
+                      className="text-sm sm:text-base text-white/70 mb-4 flex-grow"
+                      dangerouslySetInnerHTML={{ __html: product.description }}
+                    />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-brand-primary-light transition-colors">
-                    {product.name}
-                  </h3>
-                  <p
-                    className="text-sm sm:text-base text-white/70 mb-4 flex-grow"
-                    dangerouslySetInnerHTML={{ __html: product.description }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </section>
 

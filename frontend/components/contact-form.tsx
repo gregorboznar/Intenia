@@ -87,14 +87,14 @@ export default function ContactForm() {
             <div className="mx-auto w-full relative">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-[29px] blur-lg opacity-70"></div>
-                <div className="relative bg-white rounded-[29px] rounded-br-none px-6 pt-10 pb-10 sm:pb-16 md:px-8 lg:px-8 lg:py-24">
+                <div className="relative bg-white rounded-[29px] rounded-bl-none rounded-br-none sm:rounded-b-[29px]  px-6 pt-10 pb-10 sm:pb-16 md:px-8 lg:px-8 lg:py-24">
                   <div className="container mx-0 px-0 sm:mx-auto sm:px-4 block items-center lg:flex">
                     <div className="w-full lg:w-1/3 mb-10 lg:mb-0">
                       <p className="relative pl-5 mb-2 text-base lg:mb-5 lg:text-lg inline-flex items-center">
                         <span className="absolute w-1.5 h-1.5 bg-brand-primary rounded-full left-0 top-1/2 -translate-y-1/2"></span>
                         <span className="text-black">Kontakt</span>
                       </p>
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-black">
                         Kontaktni obrazec
                       </h2>
                       <h4 className="text-black hidden lg:block text-lg">
@@ -266,7 +266,7 @@ export default function ContactForm() {
                                   <div>{isSubmitting ? "Pošiljanje..." : "Pošlji"}</div>
                                 </div>
                               </div>
-                              <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
+                              {/*   <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
                                 <svg
                                   className="w-3 h-3 fill-current text-white"
                                   width="23"
@@ -276,7 +276,7 @@ export default function ContactForm() {
                                 >
                                   <path d="M17.27 6.37a1 1 0 0 0-1.004-1.003h-9.9a1.004 1.004 0 1 0 0 2.008l7.49-.007-8.196 8.195a1 1 0 1 0 1.414 1.415l8.195-8.196-.007 7.488a1 1 0 0 0 1.004 1.005 1 1 0 0 0 1.004-1.005v-9.9z" />
                                 </svg>
-                              </div>
+                              </div> */}
                             </button>
                           </div>
                         </div>
@@ -293,12 +293,12 @@ export default function ContactForm() {
                   </div>
                 </div>
               </div>
-              <div className="w-full h-24 flex justify-end items-start relative -top-px">
+              <div className="w-full h-24 flex justify-end items-start relative -top-px sm:hidden ">
                 <div className="flex-1 h-full relative right-0 top-px">
                   <div className="rounded-tr-[29px] w-full h-full absolute bg-black z-[1]"></div>
                   <div className="absolute w-12 h-12 -right-px -top-px bg-white z-0"></div>
                 </div>
-                <div className="h-full w-3/4 bg-white rounded-b-[29px] flex items-center justify-end pb-10 px-6">
+                <div className="h-full w-full bg-white rounded-b-[29px] flex items-center justify-end pb-10 px-6">
                   <div className="relative group inline-flex items-center font-nexa-bold text-white | lg:hidden || mobile-hover">
                     <svg width="0" height="0" className="absolute hidden" colorInterpolationFilters="sRGB">
                       <defs>
@@ -321,7 +321,7 @@ export default function ContactForm() {
                           <div>{isSubmitting ? "Pošiljanje..." : "Pošlji"}</div>
                         </div>
                       </div>
-                      <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 sm:w-10 sm:h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
+                      {/* <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 sm:w-10 sm:h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
                         <svg
                           className="w-3 h-3 fill-current text-white"
                           width="23"
@@ -331,7 +331,7 @@ export default function ContactForm() {
                         >
                           <path d="M17.27 6.37a1 1 0 0 0-1.004-1.003h-9.9a1.004 1.004 0 1 0 0 2.008l7.49-.007-8.196 8.195a1 1 0 1 0 1.414 1.415l8.195-8.196-.007 7.488a1 1 0 0 0 1.004 1.005 1 1 0 0 0 1.004-1.005v-9.9z" />
                         </svg>
-                      </div>
+                      </div> */}
                     </button>
                     <div className="w-10 h-10 sm:w-10 sm:h-10 absolute top-0 right-0 flex items-center justify-center transition-transform transform lg:group-hover:translate-x-3 lg:group-hover:rotate-45 pointer-events-none js-button-arrow">
                       <div className="relative overflow-hidden">

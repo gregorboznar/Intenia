@@ -50,15 +50,15 @@ export default function CookiesPage() {
               </h3>
               <ul className="space-y-2 text-white/70">
                 <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-brand-primary mt-2 mr-3 flex-shrink-0"></span>
                   <span><strong className="text-white/90">_ga</strong> {t("gaDesc")}</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-brand-primary mt-2 mr-3 flex-shrink-0"></span>
                   <span><strong className="text-white/90">_gat</strong> {t("gatDesc")}</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-brand-primary mt-2 mr-3 flex-shrink-0"></span>
                   <span><strong className="text-white/90">_gid</strong> {t("gidDesc")}</span>
                 </li>
               </ul>
@@ -70,7 +70,7 @@ export default function CookiesPage() {
               </h3>
               <ul className="space-y-2 text-white/70">
                 <li className="flex items-start">
-                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mt-2 mr-3 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-brand-primary mt-2 mr-3 flex-shrink-0"></span>
                   <span><strong className="text-white/90">intenia-language</strong> {t("i18nDesc")}</span>
                 </li>
               </ul>

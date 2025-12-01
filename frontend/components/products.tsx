@@ -54,6 +54,7 @@ export default function Products() {
 
   return (
     <section
+      id="products"
       className="relative py-12 sm:py-16 md:py-24 bg-black overflow-hidden"
       aria-labelledby="products-heading"
     >
@@ -71,7 +72,7 @@ export default function Products() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 id="products-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+          <h2 id="products-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white">
             Naši produkti
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
@@ -136,9 +137,9 @@ export default function Products() {
           className="text-center mt-8 sm:mt-12"
         >
           <Link href="/products">
-            <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full">
+            <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full group">
               Raziskajte več produktov
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
         </motion.div>

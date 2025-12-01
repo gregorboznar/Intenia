@@ -67,7 +67,7 @@ export default function AboutUs() {
 
   // Progress animation
   useEffect(() => {
-    const duration = 4000;
+    const duration = 2350;
     let startTime: number | null = null;
     let animationFrame: number;
 
@@ -159,7 +159,7 @@ export default function AboutUs() {
                           scale: index === currentSlide ? 1 : 0.95,
                         }}
                         transition={{
-                          duration: 0.6,
+                          duration: 0.4,
                           ease: [0.4, 0, 0.2, 1]
                         }}
                         className={`absolute top-0 left-0 w-full h-full flex justify-center items-center px-6 sm:px-10 ${index === currentSlide ? "z-10" : "z-0 pointer-events-none"
@@ -178,7 +178,7 @@ export default function AboutUs() {
             </div>
             <div className="w-full lg:w-3/5 ">
               <div className="relative">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white">
                   O nas
                 </h2>
 
@@ -201,7 +201,7 @@ export default function AboutUs() {
           {/* Kje delamo */}
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-20 lg:mb-32">
             <div className="w-full lg:w-1/2">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kje delamo in kaj prevzamemo</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">Kje delamo in kaj prevzamemo</h3>
               <p className="text-base sm:text-lg text-white/70 mb-6">
                 V središču našega dela sta inženiring in odgovornost do celotnega cikla: od prve analize in zasnove, prek izdelave in montaže, do dokumentacije in podpore po dobavi.
               </p>
@@ -224,7 +224,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="w-full lg:w-1/2">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kako delamo – od ideje do izvedbe</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">Kako delamo – od ideje do izvedbe</h3>
               <p className="text-base sm:text-lg text-white/70 mb-6">
                 Inženirske naloge vodimo celostno. Na podlagi zahtev, podatkov in standardov oblikujemo tehnično rešitev, ki optimizira učinkovitost in zagotovi varnost.
               </p>
@@ -238,7 +238,7 @@ export default function AboutUs() {
           </div>
 
           <div className="mb-20 lg:mb-32">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-12 text-center">Naša načela</h3>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">Naša načela</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
                 <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
@@ -273,7 +273,7 @@ export default function AboutUs() {
           {/* Kako začnemo sodelovanje */}
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 pb-20">
             <div className="w-full lg:w-1/2">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">Kako začnemo sodelovanje</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">Kako začnemo sodelovanje</h3>
               <p className="text-base sm:text-lg text-white/70 mb-6">
                 Na domači strani so predstavljeni naši produkti in sklopi s ključnimi tehničnimi podatki, ki dajo občutek, kakšne izzive rešujemo in v kakšnem razponu delamo.
               </p>

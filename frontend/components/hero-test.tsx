@@ -1,12 +1,14 @@
 "use client"
 
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
 
 export default function HeroTest() {
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black pt-16">
-      <div className="container mx-auto px-4 relative z-10 flex items-center justify-center flex-col">
-        <div className="w-full h-full flex items-center justify-center">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black pt-16 mt-8">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center w-full">
+        <div className="flex-1 flex items-center justify-center w-full">
           <Image
             src="/images/logos/intenia-logo-2.png"
             alt="Intenia Engineering Logo"
@@ -16,13 +18,16 @@ export default function HeroTest() {
             priority
           />
         </div>
-        <div className="text-center leading-tight mt-32 max-w-[300px] items-center justify-center">
-
+        <div className="text-center leading-tight max-w-[300px] items-center justify-center mt-36">
           <p>Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, </p>
-          <span className="flex items-center relative uppercase  group mt-6 text-xs xl:text-base items-center justify-center">Oglejte si naše delo</span>
+          <Button onClick={() => {
+            document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }} className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full group mt-6">
+            Oglejte si naše delo
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
       </div>
     </section>
   )
 }
-

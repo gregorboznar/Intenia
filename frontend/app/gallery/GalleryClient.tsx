@@ -1,8 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import dynamic from "next/dynamic"
+import Lightbox from "@/components/lightbox"
 
 const ContactForm = dynamic(() => import("@/components/contact-form"), {
   loading: () => <div className="min-h-[400px] bg-black" />,
@@ -19,6 +21,8 @@ interface GalleryClientProps {
 }
 
 export default function GalleryClient({ images }: GalleryClientProps) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -78,9 +82,10 @@ export default function GalleryClient({ images }: GalleryClientProps) {
                 key={image.ID}
                 variants={itemVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group relative"
+                className="group relative cursor-pointer"
+                onClick={() => setSelectedIndex(index)}
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-primary-light rounded-[29px] blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
                 <div className="relative rounded-lg overflow-hidden h-full">
                   <div className="relative w-full h-64 sm:h-72 lg:h-80 transition-transform duration-300 group-hover:scale-105">
                     <Image
@@ -93,6 +98,11 @@ export default function GalleryClient({ images }: GalleryClientProps) {
                       className="object-cover"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
+                    {/*    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium">
+                        Povečaj
+                      </div>
+                    </div> */}
                   </div>
                 </div>
               </motion.div>
@@ -102,6 +112,14 @@ export default function GalleryClient({ images }: GalleryClientProps) {
       </section>
 
       <ContactForm />
+
+      {selectedIndex !== null && (
+        <Lightbox
+          images={images}
+          initialIndex={selectedIndex}
+          onClose={() => setSelectedIndex(null)}
+        />
+      )}
     </div>
   )
 }

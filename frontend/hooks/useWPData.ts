@@ -46,8 +46,7 @@ export function useWPData(endpoint: string) {
       setLoading(true)
       try {
         const url = `https://wp.intenia-engineering.si/wp-json/wp/v2/${endpoint}?lang=${selectedLanguage}&_embed`
-        console.log("🌍 Language selected:", selectedLanguage)
-        console.log("📡 Fetching from URL:", url)
+
 
         const response = await fetch(url)
         console.log("📥 Response status:", response.status, response.statusText)

@@ -33,14 +33,24 @@ export default function DesktopNav() {
       if (pathname === '/') {
         const element = document.querySelector(hash)
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          const headerHeight = 60
+          let offset = headerHeight
+
+          if (hash === '#kontakt') {
+            offset = headerHeight - 20
+          } else if (hash === '#o-nas') {
+            offset = headerHeight + 20
+          }
+
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+          const offsetPosition = elementPosition - offset
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
         }
       } else {
         router.push(`/${hash}`)
       }
     }
   }
-
   const handleLanguageChange = (value: string) => {
     setSelectedLanguage(value as "sl" | "en" | "fr")
   }

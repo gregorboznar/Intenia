@@ -51,17 +51,3 @@ function fetchWithHttps(url: string, maxRedirects = 5): Promise<any> {
   });
 }
 
-export async function GET() {
-  try {
-    const data = await fetchWithHttps(
-      "https://wp.intenia-engineering.si/wp-json/wp/v2/industrial-products"
-    );
-    return NextResponse.json(data);
-  } catch (error: any) {
-    return NextResponse.json(
-      { error: error.message || 'Failed to fetch products' },
-      { status: 500 }
-    );
-  }
-}
-
