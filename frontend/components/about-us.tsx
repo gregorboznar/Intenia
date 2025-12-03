@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import { Users, Target, Network, Lightbulb, Leaf, Shield } from "lucide-react";
 import Image from "next/image";
 import { useWPData } from "@/hooks/useWPData";
+import { PrincipleCard } from "@/components/ui/principle-card";
 
 export default function AboutUs() {
   const { data: aboutUsFacts, loading, error } = useWPData("about-us-carousel")
   const { data: aboutUsSections, loading: sectionsLoading } = useWPData("about-us-section")
+  const { data: aboutUsPrinciples, loading: principlesLoading } = useWPData("principles")
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -27,10 +29,13 @@ export default function AboutUs() {
   const firstSection = sortedSections.find((section) => Number(section.order) === 1);
   const otherSections = sortedSections.filter((section) => Number(section.order) !== 1);
 
+  const principleIcons = [Target, Shield, Leaf];
 
-
-  const icons = [Lightbulb, Target, Leaf, Shield, Users, Network]
-
+  const sortedPrinciples = [...aboutUsPrinciples].sort((a, b) => {
+    const orderA = Number(a.order) || 0;
+    const orderB = Number(b.order) || 0;
+    return orderA - orderB;
+  });
 
 
   // Progress animation
@@ -230,35 +235,34 @@ export default function AboutUs() {
           )}
           <div className="mb-20 lg:mb-32">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">Naša načela</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
-                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
-                  <Target className="w-6 h-6 text-brand-primary" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-4">Praktična vrednost</h4>
-                <p className="text-white/70">
-                  Našo kulturo vodijo jasno definirana načela. Rešitve morajo biti praktično uporabne in naročniku prinesti konkretno vrednost – bodisi v obliki višje zanesljivosti, manjših izpadov, nižjih stroškov ali lažjega vzdrževanja.
-                </p>
+            {principlesLoading ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-16 animate-pulse">
+                    <div className="w-12 h-12 rounded-full bg-white/10 mb-6"></div>
+                    <div className="h-6 bg-white/10 rounded mb-4 w-3/4"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-white/10 rounded w-full"></div>
+                      <div className="h-4 bg-white/10 rounded w-5/6"></div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
-                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
-                  <Shield className="w-6 h-6 text-brand-primary" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-4">Racionalnost in varnost</h4>
-                <p className="text-white/70">
-                  Pri zasnovi smo racionalni. Namesto nepotrebnega kompliciranja iščemo tehnično utemeljeno, izvedljivo pot. Varnost obravnavamo kot osnovni pogoj. Upoštevamo veljavne direktive in standarde ter skrbimo, da so rešitve prijazne do uporabnikov.
-                </p>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {sortedPrinciples.map((principle: any, index: number) => {
+                  const Icon = principleIcons[index] || Target;
+                  return (
+                    <PrincipleCard
+                      key={principle.id}
+                      icon={Icon}
+                      title={principle.heading || principle.title?.rendered || ""}
+                      description={principle.description || principle.content?.rendered?.replace(/<[^>]*>?/gm, "") || ""}
+                    />
+                  );
+                })}
               </div>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors p-16">
-                <div className="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center mb-6">
-                  <Leaf className="w-6 h-6 text-brand-primary" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-4">Trajnost in dolgoročnost</h4>
-                <p className="text-white/70">
-                  Trajnost vključujemo v izbiro materialov, v zasnovo konstrukcije in v način izdelave. Cilj je robustna in servisabilna oprema, ki ostane konkurenčna tudi dolgoročno. Ta merila držijo projekt v ravnotežju med kakovostjo, rokom in stroškom.
-                </p>
-              </div>
-            </div>
+            )}
           </div>
 
 
