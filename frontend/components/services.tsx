@@ -9,6 +9,11 @@ import { useWPData } from "@/hooks/useWPData"
 
 export default function Services() {
   const { data: wpServices, loading } = useWPData("services")
+  const { data: wpServicesSection, loading: servicesSectionLoading } = useWPData("services-section")
+
+  const servicesSection = wpServicesSection?.[0]
+  const header = servicesSection?.header
+  const description = servicesSection?.description
 
   const services = wpServices.map((service: any) => ({
     id: service.id,
@@ -58,10 +63,10 @@ export default function Services() {
           transition={{ duration: 0.5 }}
         >
           <h2 id="services-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white">
-            Naše storitve
+            {header}
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-            Obsežne rešitve, prilagojene vašim industrijskim potrebam
+            {description}
           </p>
         </motion.div>
       </div>
@@ -125,12 +130,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/*  <Link href="/products">
-            <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full">
-              Raziskajte več produktov
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link> */}
+
         </motion.div>
       </div>
     </section>

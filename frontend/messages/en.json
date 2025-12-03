@@ -71,6 +71,34 @@
     "perMonth": "month",
     "trialNotice": "All plans include a 14-day free trial. No credit card required."
   },
+  "principles": {
+    "heading": "Our Principles"
+  },
+  "products": {
+
+    "exploreMore": "Explore More Products"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Contact Form",
+    "subtitle": "We'll be happy to respond and discuss potential collaboration.",
+    "contactUs": "Contact Us",
+    "name": "Full Name",
+    "email": "Email Address",
+    "projectInfo": "Project Information",
+    "message": "Message",
+    "termsText": "We will process your personal data for the purpose of handling your inquiry. Read more about personal data processing in",
+    "privacyPolicy": "Privacy Policy",
+    "sending": "Sending...",
+    "send": "Send",
+    "success": "Your inquiry has been successfully submitted!",
+    "errors": {
+      "nameRequired": "Full name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Invalid email address",
+      "termsRequired": "You must agree to the processing of personal data"
+    }
+  },
   "cookies": {
     "title": "Cookie Policy",
     "aboutTitle": "About Cookies",

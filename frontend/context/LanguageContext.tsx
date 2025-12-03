@@ -15,19 +15,18 @@ const STORAGE_KEY = "intenia-language"
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>("en")
-  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Language | null
     if (stored && ["sl", "en", "fr"].includes(stored)) {
       setSelectedLanguage(stored)
     }
-    setIsHydrated(true)
   }, [])
 
   const handleLanguageChange = (lang: Language) => {
     setSelectedLanguage(lang)
     localStorage.setItem(STORAGE_KEY, lang)
+    document.cookie = `${STORAGE_KEY}=${lang};path=/;max-age=31536000`
   }
 
   return (

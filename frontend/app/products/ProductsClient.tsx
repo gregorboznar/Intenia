@@ -19,6 +19,11 @@ interface Product {
 
 export default function ProductsClient() {
   const { data: wpProducts, loading, error } = useWPData("new-products")
+  const { data: wpProductsSection, loading: productsSectionLoading } = useWPData("new-products-section")
+
+  const productsSection = wpProductsSection?.[0]
+  const header = productsSection?.header
+  const description = productsSection?.description
 
   const products = wpProducts
     .filter((product: any) => {
@@ -98,10 +103,10 @@ export default function ProductsClient() {
             className="text-center mb-8 sm:mb-12"
           >
             <h1 id="products-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-              Naši Produkti
+              {header}
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-              Obsežne rešitve, prilagojene vašim industrijskim potrebam
+              {description}
             </p>
           </motion.div>
 

@@ -71,6 +71,33 @@
     "perMonth": "mesec",
     "trialNotice": "Vsi načrti vključujejo 14-dnevno brezplačno preizkušnjo. Kreditna kartica ni potrebna."
   },
+  "principles": {
+    "heading": "Naša načela"
+  },
+  "products": {
+    "exploreMore": "Raziskajte več produktov"
+  },
+  "contact": {
+    "label": "Kontakt",
+    "title": "Kontaktni obrazec",
+    "subtitle": "Z veseljem odgovorimo in se pogovorimo o morebitnem sodelovanju.",
+    "contactUs": "Kontaktirajte nas",
+    "name": "Ime in priimek",
+    "email": "Email naslov",
+    "projectInfo": "Informacije o projektu",
+    "message": "Sporočilo",
+    "termsText": "Vaše osebne podatke bomo obdelovali za namene obravnave povpraševanja. Več o obdelavi osebnih podatkov si preberite v",
+    "privacyPolicy": "Politiki zasebnosti",
+    "sending": "Pošiljanje...",
+    "send": "Pošlji",
+    "success": "Povpraševanje je bilo uspešno oddano!",
+    "errors": {
+      "nameRequired": "Ime in priimek je obvezen podatek",
+      "emailRequired": "Email naslov je obvezen podatek",
+      "emailInvalid": "Neveljaven email naslov",
+      "termsRequired": "Potrebno je privoliti v obdelavo osebnih podatkov"
+    }
+  },
   "cookies": {
     "title": "Politika piškotkov",
     "aboutTitle": "O piškotkih",

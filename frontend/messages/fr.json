@@ -71,6 +71,35 @@
     "perMonth": "mois",
     "trialNotice": "Tous les plans incluent un essai gratuit de 14 jours. Aucune carte de crédit requise."
   },
+  "principles": {
+    "heading": "Nos principes"
+  },
+  "products": {
+    "heading": "Nos produits",
+    "subtitle": "Solutions complètes adaptées à vos besoins industriels",
+    "exploreMore": "Explorer plus de produits"
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Formulaire de contact",
+    "subtitle": "Nous serons heureux de répondre et de discuter d'une éventuelle collaboration.",
+    "contactUs": "Contactez-nous",
+    "name": "Nom complet",
+    "email": "Adresse e-mail",
+    "projectInfo": "Informations sur le projet",
+    "message": "Message",
+    "termsText": "Nous traiterons vos données personnelles aux fins de traitement de votre demande. En savoir plus sur le traitement des données personnelles dans",
+    "privacyPolicy": "Politique de confidentialité",
+    "sending": "Envoi...",
+    "send": "Envoyer",
+    "success": "Votre demande a été soumise avec succès!",
+    "errors": {
+      "nameRequired": "Le nom complet est requis",
+      "emailRequired": "L'adresse e-mail est requise",
+      "emailInvalid": "Adresse e-mail invalide",
+      "termsRequired": "Vous devez accepter le traitement des données personnelles"
+    }
+  },
   "cookies": {
     "title": "Politique de cookies",
     "aboutTitle": "À propos des cookies",

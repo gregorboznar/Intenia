@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion"
 import { useState, useRef, useEffect } from "react"
+import { useTranslations } from "next-intl"
 
 export default function ContactForm() {
+  const t = useTranslations("contact")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,15 +43,15 @@ export default function ContactForm() {
     const newErrors: Record<string, string> = {}
 
     if (!formData.name.trim()) {
-      newErrors.name = "Ime in priimek je obvezen podatek"
+      newErrors.name = t("errors.nameRequired")
     }
     if (!formData.email.trim()) {
-      newErrors.email = "Email naslov je obvezen podatek"
+      newErrors.email = t("errors.emailRequired")
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Neveljaven email naslov"
+      newErrors.email = t("errors.emailInvalid")
     }
     if (!formData.terms) {
-      newErrors.terms = "Potrebno je privoliti v obdelavo osebnih podatkov"
+      newErrors.terms = t("errors.termsRequired")
     }
 
     setErrors(newErrors)
@@ -92,13 +94,13 @@ export default function ContactForm() {
                     <div className="w-full lg:w-1/3 mb-10 lg:mb-0">
                       <p className="relative pl-5 mb-2 text-base lg:mb-5 lg:text-lg inline-flex items-center">
                         <span className="absolute w-1.5 h-1.5 bg-brand-primary rounded-full left-0 top-1/2 -translate-y-1/2"></span>
-                        <span className="text-black">Kontakt</span>
+                        <span className="text-black">{t("label")}</span>
                       </p>
                       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-black">
-                        Kontaktni obrazec
+                        {t("title")}
                       </h2>
                       <h4 className="text-black hidden lg:block text-lg">
-                        Z veseljem odgovorimo in se pogovorimo o morebitnem sodelovanju.
+                        {t("subtitle")}
                       </h4>
                     </div>
                     <div className="w-full lg:w-2/3 lg:pl-4 xl:pl-8 2xl:pl-20">
@@ -121,7 +123,7 @@ export default function ContactForm() {
                                 : "scale-100 translate-y-0 text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0"
                                 }`}
                             >
-                              Ime in priimek
+                              {t("name")}
                             </label>
                             {errors.name && (
                               <p className="mt-4 text-red-500 text-sm font-normal">{errors.name}</p>
@@ -144,7 +146,7 @@ export default function ContactForm() {
                                 : "scale-100 translate-y-0 text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0"
                                 }`}
                             >
-                              Email naslov
+                              {t("email")}
                             </label>
                             {errors.email && (
                               <p className="mt-4 text-red-500 text-sm font-normal">{errors.email}</p>
@@ -170,7 +172,7 @@ export default function ContactForm() {
                                 : "scale-100 translate-y-0 text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0"
                                 }`}
                             >
-                              Informacije o projektu
+                              {t("projectInfo")}
                             </label>
                           </div>
                         </div>
@@ -187,13 +189,13 @@ export default function ContactForm() {
                               className="block py-3 px-0 w-full text-black bg-transparent border-0 border-b border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black peer max-h-48 min-h-[39.25px] lg:min-h-[52px] resize-y overflow-hidden"
                             />
                             <label
-                              htmlFor="info"
-                              className={`absolute text-base lg:text-lg duration-300 pointer-events-none transform top-3 origin-[0] ${formData.info
+                              htmlFor="message"
+                              className={`absolute text-base lg:text-lg duration-300 pointer-events-none transform top-3 origin-[0] ${formData.message
                                 ? "scale-75 -translate-y-7 text-black"
                                 : "scale-100 translate-y-0 text-gray-400 peer-focus:scale-75 peer-focus:-translate-y-7 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0"
                                 }`}
                             >
-                              Sporočilo
+                              {t("message")}
                             </label>
                           </div>
                         </div>
@@ -229,9 +231,9 @@ export default function ContactForm() {
                               className=" text-xs text-gray-400 cursor-pointer select-none pl-3 leading-relaxed"
                               htmlFor="ContactTerms"
                             >
-                              Vaše osebne podatke bomo obdelovali za namene obravnave povpraševanja. Več o obdelavi osebnih podatkov si preberite v{" "}
+                              {t("termsText")}{" "}
                               <a href="/stran/politika-zasebnosti" className="underline hover:text-black">
-                                Politiki zasebnosti
+                                {t("privacyPolicy")}
                               </a>
                               .
                             </label>
@@ -263,7 +265,7 @@ export default function ContactForm() {
                             >
                               <div className="w-auto inline-flex items-center relative leading-tight overflow-hidden rounded-full bg-black py-2.5 px-16">
                                 <div className="relative inline-flex top-px flex-shrink-0">
-                                  <div>{isSubmitting ? "Pošiljanje..." : "Pošlji"}</div>
+                                  <div>{isSubmitting ? t("sending") : t("send")}</div>
                                 </div>
                               </div>
                               {/*   <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
@@ -285,7 +287,7 @@ export default function ContactForm() {
                         )}
                         {isSuccess && (
                           <p className="mt-4 text-green-600 text-sm font-normal">
-                            Povpraševanje je bilo uspešno oddano!
+                            {t("success")}
                           </p>
                         )}
                       </form>
@@ -318,7 +320,7 @@ export default function ContactForm() {
                     >
                       <div className="w-auto inline-flex items-center relative leading-tight overflow-hidden rounded-full bg-black py-2.5 px-10 sm:px-12 lg:px-16">
                         <div className="relative inline-flex top-px flex-shrink-0">
-                          <div>{isSubmitting ? "Pošiljanje..." : "Pošlji"}</div>
+                          <div>{isSubmitting ? t("sending") : t("send")}</div>
                         </div>
                       </div>
                       {/* <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 sm:w-10 sm:h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">

@@ -4,10 +4,13 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Users, Target, Network, Lightbulb, Leaf, Shield } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useWPData } from "@/hooks/useWPData";
 import { PrincipleCard } from "@/components/ui/principle-card";
 
 export default function AboutUs() {
+  const t = useTranslations("principles");
+  const tContact = useTranslations("contact");
   const { data: aboutUsFacts, loading, error } = useWPData("about-us-carousel")
   const { data: aboutUsSections, loading: sectionsLoading } = useWPData("about-us-section")
   const { data: aboutUsPrinciples, loading: principlesLoading } = useWPData("principles")
@@ -206,7 +209,7 @@ export default function AboutUs() {
                     />
                     {Number(section.order) === 4 && (
                       <a href="#kontakt" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 duration-200 py-2 bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full group mt-6">
-                        Kontaktirajte nas
+                        {tContact("contactUs")}
                       </a>
                     )}
                   </div>
@@ -234,7 +237,7 @@ export default function AboutUs() {
             </>
           )}
           <div className="mb-20 lg:mb-32">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">Naša načela</h3>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">{t("heading")}</h3>
             {principlesLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[1, 2, 3].map((i) => (

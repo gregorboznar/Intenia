@@ -5,10 +5,16 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { useWPData } from "@/hooks/useWPData"
 
 export default function Products() {
+  const t = useTranslations("products")
   const { data: wpProducts, loading } = useWPData("new-products")
+  const { data: wpProductsSection, loading: productsSectionLoading } = useWPData("new-products-section")
+  const productsSection = wpProductsSection?.[0]
+  const header = productsSection?.header
+  const description = productsSection?.description
 
   const products = wpProducts.map((product: any) => ({
     id: product.id,
@@ -73,10 +79,10 @@ export default function Products() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 id="products-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-white">
-            Naši produkti
+            {header}
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-            Obsežne rešitve, prilagojene vašim industrijskim potrebam
+            {description}
           </p>
         </motion.div>
 
@@ -138,7 +144,7 @@ export default function Products() {
         >
           <Link href="/products">
             <Button className="bg-brand-primary hover:bg-brand-primary-dark text-white h-12 px-8 text-base rounded-full group">
-              Raziskajte več produktov
+              {t("exploreMore")}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
