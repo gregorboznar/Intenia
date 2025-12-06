@@ -60,6 +60,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  turbopack: {},
   webpack(config, { dev }) {
     if (dev) {
       config.watchOptions = {
