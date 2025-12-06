@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
@@ -24,6 +25,18 @@ export default function DesktopNav() {
   const router = useRouter()
   const { selectedLanguage, setSelectedLanguage } = useLanguage()
   const t = useTranslations("nav")
+  const [showLogo, setShowLogo] = useState(false)
+
+  // Handle scroll to show/hide logo
+  useEffect(() => {
+    const handleScroll = () => {
+      const headerHeight = 60 // Header height in pixels
+      setShowLogo(window.scrollY > headerHeight)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
@@ -59,7 +72,11 @@ export default function DesktopNav() {
 
   return (
     <>
-      <Link href="/" className="hidden md:flex items-center   mr-2 lg:mr-4 ml-2 lg:ml-4">
+      <Link
+        href="/"
+        className={`hidden md:flex items-center mr-2 lg:mr-4 ml-2 lg:ml-4 transition-all duration-300 ${showLogo ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
+          }`}
+      >
         <Image
           src="/images/logos/intenia-logo-2.png"
           alt="Intenia Engineering Logo"
@@ -69,7 +86,10 @@ export default function DesktopNav() {
           priority
         />
       </Link>
-      <nav className="hidden md:flex items-center gap-4 lg:gap-8">
+      <nav
+        className={`hidden md:flex items-center gap-4 lg:gap-8 transition-transform duration-300 ${showLogo ? 'translate-x-0' : '-translate-x-[158px] lg:-translate-x-[166px]'
+          }`}
+      >
         <Link
           href="/#o-nas"
           onClick={(e) => handleAnchorClick(e, '#o-nas')}
@@ -78,13 +98,6 @@ export default function DesktopNav() {
           {t("about")}
         </Link>
 
-        {/*   <Link
-          href="/#nase-vrednote"
-          onClick={(e) => handleAnchorClick(e, '#nase-vrednote')}
-          className="text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 text-sm lg:text-base"
-        >
-          {t("values")}
-        </Link> */}
 
         <Link
           href="/products"
