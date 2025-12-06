@@ -97,7 +97,8 @@
       "nameRequired": "Le nom complet est requis",
       "emailRequired": "L'adresse e-mail est requise",
       "emailInvalid": "Adresse e-mail invalide",
-      "termsRequired": "Vous devez accepter le traitement des données personnelles"
+      "termsRequired": "Vous devez accepter le traitement des données personnelles",
+      "submitFailed": "Échec de l'envoi du message. Veuillez réessayer."
     }
   },
   "cookies": {

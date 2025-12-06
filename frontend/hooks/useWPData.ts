@@ -52,13 +52,13 @@ export function useWPData(endpoint: string) {
 
 
         const response = await fetch(url)
-        console.log("📥 Response status:", response.status, response.statusText)
+        console.log("Response status:", response.status, response.statusText)
 
         if (!response.ok) {
           throw new Error("Failed to fetch data")
         }
         const result = await response.json()
-        console.log(`✅ Fetched ${result.length} items from ${endpoint}:`, result)
+        console.log(`Fetched ${result.length} items from ${endpoint}:`, result)
         setData(result)
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred")

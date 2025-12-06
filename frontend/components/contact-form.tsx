@@ -16,6 +16,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [formStartTime] = useState(Date.now())
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
 
@@ -67,9 +68,40 @@ export default function ContactForm() {
 
     setIsSubmitting(true)
 
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          lastName: "",
+          email: formData.email,
+          projectInformation: formData.info,
+          message: formData.message,
+          _timestamp: formStartTime,
+        }),
+      })
 
+      if (response.ok) {
+        setIsSuccess(true)
+        setFormData({
+          name: "",
+          email: "",
+          info: "",
+          message: "",
+          terms: false,
+        })
+      } else {
+        setErrors({ submit: t("errors.submitFailed") })
+      }
+    } catch (error) {
+      setErrors({ submit: t("errors.submitFailed") })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
-
   return (
     <section id="kontakt" className="pt-4 pb-20 px-3 sm:px-0 sm:py-16 md:py-12 bg-black relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 z-0">
@@ -105,6 +137,15 @@ export default function ContactForm() {
                     </div>
                     <div className="w-full lg:w-2/3 lg:pl-4 xl:pl-8 2xl:pl-20">
                       <form onSubmit={handleSubmit} className="inquiry-submit">
+                        {/* Honeypot field - hidden from users but visible to bots */}
+                        <input
+                          type="text"
+                          name="website"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          style={{ position: 'absolute', left: '-9999px' }}
+                          aria-hidden="true"
+                        />
                         <div className="grid gap-x-8 gap-y-10 mb-10 lg:gap-y-16 lg:grid-cols-2 lg:mb-16">
                           <div className="relative text-lg font-semibold">
                             <input
@@ -284,6 +325,11 @@ export default function ContactForm() {
                         </div>
                         {errors.terms && (
                           <p className="mt-4 text-red-500 text-sm font-normal hidden lg:block">{errors.terms}</p>
+                        )}
+                        {errors.submit && (
+                          <p className="mt-4 text-red-500 text-sm font-normal">
+                            {errors.submit}
+                          </p>
                         )}
                         {isSuccess && (
                           <p className="mt-4 text-green-600 text-sm font-normal">

@@ -96,7 +96,8 @@
       "nameRequired": "Full name is required",
       "emailRequired": "Email address is required",
       "emailInvalid": "Invalid email address",
-      "termsRequired": "You must agree to the processing of personal data"
+      "termsRequired": "You must agree to the processing of personal data",
+      "submitFailed": "Failed to send message. Please try again."
     }
   },
   "cookies": {

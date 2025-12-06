@@ -95,7 +95,8 @@
       "nameRequired": "Ime in priimek je obvezen podatek",
       "emailRequired": "Email naslov je obvezen podatek",
       "emailInvalid": "Neveljaven email naslov",
-      "termsRequired": "Potrebno je privoliti v obdelavo osebnih podatkov"
+      "termsRequired": "Potrebno je privoliti v obdelavo osebnih podatkov",
+      "submitFailed": "Pošiljanje sporočila ni uspelo. Poskusite znova."
     }
   },
   "cookies": {
