@@ -19,12 +19,12 @@ export default async function Home() {
       <HeroServer />
       <Services />
       <Products />
-      <LazyLoad>
-        <AboutUs />
-      </LazyLoad>
-      <LazyLoad>
-        <ContactForm />
-      </LazyLoad>
+
+      <AboutUs />
+
+
+      <ContactForm />
+
     </div>
   );
 }
