@@ -26,7 +26,8 @@ export default async function HeroServer() {
   const buttonText = headerSection.button_text
 
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black pt-16 mt-8">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-black pt-8 sm:pt-12 md:pt-16 mt-4 sm:mt-6 md:mt-8"
+    >
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center w-full">
         <div className="flex-1 flex items-center justify-center w-full">
           <Image
@@ -39,7 +40,7 @@ export default async function HeroServer() {
             fetchPriority="high"
           />
         </div>
-        <div className="text-center leading-tight max-w-[300px] items-center justify-center mt-36">
+        <div className="text-center leading-tight items-center justify-center mt-12 sm:mt-20 md:mt-28 lg:mt-48">
           <h1 className="text-2xl sm:text-3xl font-bold mb-4">{title || "Intenia Engineering"}</h1>
           <HeroClient buttonText={buttonText} />
         </div>
