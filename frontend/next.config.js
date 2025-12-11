@@ -56,6 +56,10 @@ const nextConfig = {
       '@tabler/icons-react'
     ],
     scrollRestoration: false,
+    staleTimes: {
+      dynamic: 30, 
+      static: 180,
+    },
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
