@@ -32,7 +32,7 @@ export default function Services() {
     <div className={`w-full py-16 md:py-24 ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-          <div className="flex-1 order-2 md:order-1 text-left">
+          <div className="flex-1 order-1 md:order-1 text-left">
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-white/10 animate-pulse rounded"></div>
               <div className="h-12 bg-white/10 animate-pulse rounded w-3/4"></div>
@@ -43,7 +43,7 @@ export default function Services() {
               <div className="h-4 bg-white/10 animate-pulse rounded w-4/6"></div>
             </div>
           </div>
-          <div className="flex-1 order-1 md:order-2 w-full">
+          <div className="flex-1 order-2 md:order-2 w-full">
             <div className="relative h-[300px] md:h-[450px] w-full bg-white/10 animate-pulse rounded-lg"></div>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Services() {
   )
 
   return (
-    <section className="relative bg-black overflow-hidden" aria-labelledby="services-heading">
+    <section id="services" className="relative bg-black overflow-hidden" aria-labelledby="services-heading">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-primary/10 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-brand-primary-light/10 rounded-full blur-[100px]"></div>
@@ -94,7 +94,7 @@ export default function Services() {
             >
               <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-                  <div className="flex-1 order-2 md:order-1 text-left">
+                  <div className="flex-1 order-1 md:order-1 text-left">
                     <div className="flex items-start gap-4 mb-6">
                       <span className="text-brand-primary text-4xl md:text-5xl font-black tracking-tighter leading-none ">III</span>
                       <h3 className="text-3xl md:text-4xl font-bold uppercase text-white leading-tight">
@@ -107,7 +107,7 @@ export default function Services() {
                     />
                   </div>
 
-                  <div className="flex-1 order-1 md:order-2 w-full">
+                  <div className="flex-1 order-2 md:order-2 w-full">
                     {service.images.length === 1 ? (
                       <div className="relative h-[300px] md:h-[450px] w-full overflow-hidden rounded-lg shadow-lg">
                         <Image
