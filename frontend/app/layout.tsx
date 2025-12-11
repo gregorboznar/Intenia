@@ -10,7 +10,9 @@ import CookieNotification from "@/components/cookie-notification"
 
 const rajdhani = Rajdhani({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -46,7 +48,10 @@ export default function RootLayout({
   return (
     <html lang="sl" suppressHydrationWarning>
       <head>
-        {/* Add any other head tags if needed, metadata object handles common ones */}
+        <link rel="preconnect" href="https://wp.intenia-engineering.si" />
+        <link rel="dns-prefetch" href="https://wp.intenia-engineering.si" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${rajdhani.className} bg-black text-white`} suppressHydrationWarning>
         <ThemeProvider

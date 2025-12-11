@@ -36,6 +36,7 @@ export default async function HeroServer() {
             height={480}
             className="w-full h-auto max-w-full object-contain"
             priority
+            fetchPriority="high"
           />
         </div>
         <div className="text-center leading-tight max-w-[300px] items-center justify-center mt-36">

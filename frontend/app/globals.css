@@ -25,9 +25,9 @@
     --ring: 199 100% 62%;
     --radius: 0.5rem;
 
-    --brand-primary: 199 100% 62%;
-    --brand-primary-light: 199 100% 72%;
-    --brand-primary-dark: 199 100% 52%;
+    --brand-primary: 199 100% 48%;
+    --brand-primary-light: 199 100% 65%;
+    --brand-primary-dark: 199 100% 40%;
     --brand-secondary: 199 80% 55%;
     --brand-accent: 199 100% 68%;
   }
@@ -53,9 +53,9 @@
     --input: 240 3.7% 15.9%;
     --ring: 199 100% 62%;
 
-    --brand-primary: 199 100% 62%;
-    --brand-primary-light: 199 100% 72%;
-    --brand-primary-dark: 199 100% 52%;
+    --brand-primary: 199 100% 48%;
+    --brand-primary-light: 199 100% 65%;
+    --brand-primary-dark: 199 100% 40%;
     --brand-secondary: 199 80% 55%;
     --brand-accent: 199 100% 68%;
   }
