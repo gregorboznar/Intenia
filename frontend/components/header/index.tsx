@@ -56,14 +56,16 @@ export default function ModernHeader() {
 
 
         <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
-          <Image
-            src="/images/logos/intenia-logo-2.png"
-            alt="Intenia Engineering Logo"
-            width={200}
-            height={40}
-            className="h-5 w-auto"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/images/logos/intenia-logo-2.png"
+              alt="Intenia Engineering Logo"
+              width={200}
+              height={40}
+              className="h-5 w-auto"
+              priority
+            />
+          </Link>
         </div>
 
 
