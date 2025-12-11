@@ -48,22 +48,14 @@ export function useWPData(endpoint: string) {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const url = `https://wp.intenia-engineering.si/wp-json/wp/v2/${endpoint}?lang=${selectedLanguage}&_embed`
+        const url = `/api/wp/${endpoint}?lang=${selectedLanguage}`
 
-
-        const response = await fetch(url, {
-          next: { revalidate: 3600 },
-          headers: {
-            'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
-          },
-        });
-        console.log("Response status:", response.status, response.statusText)
+        const response = await fetch(url)
 
         if (!response.ok) {
           throw new Error("Failed to fetch data")
         }
         const result = await response.json()
-        console.log(`Fetched ${result.length} items from ${endpoint}:`, result)
         setData(result)
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred")
