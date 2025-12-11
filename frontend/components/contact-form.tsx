@@ -308,17 +308,7 @@ export default function ContactForm() {
                                   <div>{isSubmitting ? t("sending") : t("send")}</div>
                                 </div>
                               </div>
-                              {/*   <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
-                                <svg
-                                  className="w-3 h-3 fill-current text-white"
-                                  width="23"
-                                  height="23"
-                                  viewBox="0 0 23 23"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M17.27 6.37a1 1 0 0 0-1.004-1.003h-9.9a1.004 1.004 0 1 0 0 2.008l7.49-.007-8.196 8.195a1 1 0 1 0 1.414 1.415l8.195-8.196-.007 7.488a1 1 0 0 0 1.004 1.005 1 1 0 0 0 1.004-1.005v-9.9z" />
-                                </svg>
-                              </div> */}
+
                             </button>
                           </div>
                         </div>
@@ -343,7 +333,7 @@ export default function ContactForm() {
               <div className="w-full h-24 flex justify-end items-start relative -top-px sm:hidden ">
                 <div className="flex-1 h-full relative right-0 top-px">
                   <div className="rounded-tr-[29px] w-full h-full absolute bg-black z-[1]"></div>
-                  <div className="absolute w-12 h-12 -right-px -top-px bg-white z-0"></div>
+                  {/*  <div className="absolute w-12 h-12 -right-px -top-px bg-white z-0"></div> */}
                 </div>
                 <div className="h-full w-full bg-white rounded-b-[29px] flex items-center justify-end pb-10 px-6">
                   <div className="relative group inline-flex items-center font-nexa-bold text-white | lg:hidden || mobile-hover">
@@ -368,17 +358,7 @@ export default function ContactForm() {
                           <div>{isSubmitting ? t("sending") : t("send")}</div>
                         </div>
                       </div>
-                      {/* <div className="bg-black flex-shrink-0 overflow-hidden flex items-center justify-center -ml-1 rounded-full transform transition-transform w-10 h-10 sm:w-10 sm:h-10 lg:group-hover:translate-x-3 lg:group-hover:rotate-45">
-                        <svg
-                          className="w-3 h-3 fill-current text-white"
-                          width="23"
-                          height="23"
-                          viewBox="0 0 23 23"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M17.27 6.37a1 1 0 0 0-1.004-1.003h-9.9a1.004 1.004 0 1 0 0 2.008l7.49-.007-8.196 8.195a1 1 0 1 0 1.414 1.415l8.195-8.196-.007 7.488a1 1 0 0 0 1.004 1.005 1 1 0 0 0 1.004-1.005v-9.9z" />
-                        </svg>
-                      </div> */}
+
                     </button>
                     <div className="w-10 h-10 sm:w-10 sm:h-10 absolute top-0 right-0 flex items-center justify-center transition-transform transform lg:group-hover:translate-x-3 lg:group-hover:rotate-45 pointer-events-none js-button-arrow">
                       <div className="relative overflow-hidden">

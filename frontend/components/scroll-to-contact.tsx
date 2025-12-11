@@ -49,7 +49,7 @@ export default function ScrollToContact() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={scrollToContact}
-          className="fixed bottom-8 left-8 z-50 p-3 rounded-full bg-neutral-950/0 text-primary-foreground shadow-lg backdrop-blur-sm border border-blue-500/30 hover:bg-primary/90 hover:scale-110 transition-all duration-300 group"
+          className="hidden sm:block fixed bottom-8 left-8 z-50 p-3 rounded-full bg-neutral-950/0 text-primary-foreground shadow-lg backdrop-blur-sm border border-blue-500/30 hover:bg-primary/90 hover:scale-110 transition-all duration-300 group"
           aria-label="Scroll to contact form"
         >
           <Mail className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300" />
