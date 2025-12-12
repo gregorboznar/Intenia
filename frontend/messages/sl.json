@@ -77,6 +77,10 @@
   "products": {
     "exploreMore": "Raziskajte več produktov"
   },
+  "gallery": {
+    "heading": "Galerija",
+    "subtitle": "Naši projekti in dosežki"
+  },
   "contact": {
     "label": "Kontakt",
     "title": "Kontaktni obrazec",

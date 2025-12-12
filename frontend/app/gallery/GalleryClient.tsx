@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import dynamic from "next/dynamic"
+import { useTranslations } from "next-intl"
 import Lightbox from "@/components/lightbox"
 
 const ContactForm = dynamic(() => import("@/components/contact-form"), {
@@ -21,6 +22,7 @@ interface GalleryClientProps {
 }
 
 export default function GalleryClient({ images }: GalleryClientProps) {
+  const t = useTranslations("gallery")
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const containerVariants = {
@@ -63,10 +65,10 @@ export default function GalleryClient({ images }: GalleryClientProps) {
             className="text-center mb-8 sm:mb-12"
           >
             <h1 id="gallery-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
-              Galerija
+              {t("heading")}
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-              Naši projekti in dosežki
+              {t("subtitle")}
             </p>
           </motion.div>
 

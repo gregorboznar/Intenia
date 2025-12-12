@@ -78,6 +78,10 @@
 
     "exploreMore": "Explore More Products"
   },
+  "gallery": {
+    "heading": "Gallery",
+    "subtitle": "Our projects and achievements"
+  },
   "contact": {
     "label": "Contact",
     "title": "Contact Form",

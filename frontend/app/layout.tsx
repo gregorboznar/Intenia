@@ -55,9 +55,9 @@ export const metadata: Metadata = {
     siteName: "Intenia Engineering",
     images: [
       {
-        url: "/images/icons/web-app-manifest-512x512.png",
-        width: 512,
-        height: 512,
+        url: "/temp.png",
+        width: 1200,
+        height: 630,
         alt: "Intenia Engineering",
       },
     ],
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Intenia Engineering",
     description: "Inženirska odličnost - Inovativnost in kakovost",
-    images: ["/images/icons/web-app-manifest-512x512.png"],
+    images: ["/temp.png"],
   },
 }
 
