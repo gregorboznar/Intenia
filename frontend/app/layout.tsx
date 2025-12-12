@@ -37,7 +37,11 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/icons/favicon.svg",
+    icon: [
+      { url: "/images/icons/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/icons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/images/icons/favicon.ico", sizes: "any" },
+    ],
     shortcut: "/images/icons/favicon.svg",
     apple: "/images/icons/apple-touch-icon.png",
   },
@@ -51,9 +55,9 @@ export const metadata: Metadata = {
     siteName: "Intenia Engineering",
     images: [
       {
-        url: "/temp.png",
-        width: 1200,
-        height: 630,
+        url: "/images/icons/web-app-manifest-512x512.png",
+        width: 512,
+        height: 512,
         alt: "Intenia Engineering",
       },
     ],
@@ -64,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Intenia Engineering",
     description: "Inženirska odličnost - Inovativnost in kakovost",
-    images: ["/temp.png"],
+    images: ["/images/icons/web-app-manifest-512x512.png"],
   },
 }
 
