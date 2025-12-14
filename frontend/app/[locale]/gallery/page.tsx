@@ -2,11 +2,37 @@ import GalleryClient from './GalleryClient';
 import { getGalleryImages } from '@/lib/wordpress';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: '/gallery',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  
+  const descriptions: Record<string, string> = {
+    sl: "Oglejte si našo galerijo projektov in dosežkov. Intenia Engineering predstavlja svoje uspešne inženirske projekte in rešitve.",
+    en: "View our gallery of projects and achievements. Intenia Engineering showcases its successful engineering projects and solutions.",
+    fr: "Découvrez notre galerie de projets et réalisations. Intenia Engineering présente ses projets et solutions d'ingénierie réussis.",
+  };
+
+  const titles: Record<string, string> = {
+    sl: "Galerija",
+    en: "Gallery",
+    fr: "Galerie",
+  };
+
+  return {
+    title: titles[locale] || titles.sl,
+    description: descriptions[locale] || descriptions.sl,
+    alternates: {
+      canonical: '/gallery',
+    },
+    openGraph: {
+      title: titles[locale] || titles.sl,
+      description: descriptions[locale] || descriptions.sl,
+    },
+    twitter: {
+      title: titles[locale] || titles.sl,
+      description: descriptions[locale] || descriptions.sl,
+    },
+  };
+}
 
 interface GalleryImage {
   ID: string;

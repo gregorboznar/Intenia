@@ -4,11 +4,28 @@ import ScrollToTop from "@/components/scroll-to-top";
 import ScrollToContact from "@/components/scroll-to-contact";
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: '/',
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  
+  const descriptions: Record<string, string> = {
+    sl: "Intenia Engineering d.o.o., s sedežem v Medvodah, Slovenija, se odlično odziva pri zagotavljanju inženirskih, konzultacijskih, proizvodnih in posredovalnih storitev. Naša misija je zagotavljati inovativne rešitve, ki presegajo pričakovanja strank.",
+    en: "Intenia Engineering d.o.o., based in Medvode, Slovenia, excels in providing engineering, consulting, manufacturing and intermediary services. Our mission is to provide innovative solutions that exceed customer expectations.",
+    fr: "Intenia Engineering d.o.o., basée à Medvode, en Slovénie, excelle dans la fourniture de services d'ingénierie, de conseil, de fabrication et d'intermédiation. Notre mission est de fournir des solutions innovantes qui dépassent les attentes des clients.",
+  };
+
+  return {
+    description: descriptions[locale] || descriptions.sl,
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      description: descriptions[locale] || descriptions.sl,
+    },
+    twitter: {
+      description: descriptions[locale] || descriptions.sl,
+    },
+  };
+}
 
 const Products = dynamic(() => import("@/components/products"));
 const Services = dynamic(() => import("@/components/services"));

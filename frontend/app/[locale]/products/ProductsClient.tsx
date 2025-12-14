@@ -150,7 +150,7 @@ export default function ProductsClient() {
                         {product.category}
                       </span> */}
                     </div>
-                    <h2 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-brand-primary-light transition-colors">
+                    <h2 className="text-lg sm:text-2xl font-bold mb-2 ">
                       {product.name}
                     </h2>
                     <p
