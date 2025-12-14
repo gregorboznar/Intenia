@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/routing"
 import Image from "next/image"
 import { Twitter, Facebook, Instagram, Linkedin, Github } from "lucide-react"
 import { useState, useRef, useEffect } from "react"

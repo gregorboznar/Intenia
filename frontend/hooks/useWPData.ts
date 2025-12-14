@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useLanguage } from "@/context/LanguageContext"
+import { useLocale } from "next-intl"
 
 interface WPImage {
   ID: string
@@ -39,7 +39,7 @@ interface WPData {
 }
 
 export function useWPData(endpoint: string) {
-  const { selectedLanguage } = useLanguage()
+  const selectedLanguage = useLocale()
   const [data, setData] = useState<WPData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

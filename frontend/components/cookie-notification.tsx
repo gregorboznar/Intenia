@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { X } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/routing"
 
 export default function CookieNotification() {
   const [isVisible, setIsVisible] = useState(false)

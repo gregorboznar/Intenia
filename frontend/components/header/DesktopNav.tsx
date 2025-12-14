@@ -1,11 +1,7 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import Link from "next/link"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { usePathname, useRouter } from "next/navigation"
-import { useTranslations } from "next-intl"
-import { useLanguage } from "@/context/LanguageContext"
+import { Link, usePathname, useRouter } from "@/routing"
+import { useTranslations, useLocale } from "next-intl"
 import {
   Select,
   SelectContent,
@@ -23,7 +19,7 @@ const languages = [
 export default function DesktopNav() {
   const pathname = usePathname()
   const router = useRouter()
-  const { selectedLanguage, setSelectedLanguage } = useLanguage()
+  const locale = useLocale()
   const t = useTranslations("nav")
   const [isScrolled, setIsScrolled] = useState(false)
   const isHomePage = pathname === "/"
@@ -62,15 +58,15 @@ export default function DesktopNav() {
           window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
         }
       } else {
-        router.push(`/${hash}`)
+        router.push(`/${hash}` as any)
       }
     }
   }
   const handleLanguageChange = (value: string) => {
-    setSelectedLanguage(value as "sl" | "en" | "fr")
+    router.replace(pathname, { locale: value })
   }
 
-  const currentLanguage = languages.find(lang => lang.code === selectedLanguage) || languages[0]
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0]
 
   return (
     <div className="hidden md:grid grid-cols-3 items-center w-full">
@@ -93,7 +89,7 @@ export default function DesktopNav() {
 
       <nav className="justify-self-center flex items-center gap-4 lg:gap-8">
         <Link
-          href="/#o-nas"
+          href={"/#o-nas" as any}
           onClick={(e) => handleAnchorClick(e, '#o-nas')}
           className="text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 text-sm lg:text-base"
         >
@@ -115,7 +111,7 @@ export default function DesktopNav() {
         </Link>
 
         <Link
-          href="/#kontakt"
+          href={"/#kontakt" as any}
           onClick={(e) => handleAnchorClick(e, '#kontakt')}
           className="text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 text-sm lg:text-base"
         >
@@ -124,7 +120,7 @@ export default function DesktopNav() {
       </nav>
 
       <div className="justify-self-end flex items-center gap-1 lg:gap-3">
-        <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
+        <Select value={locale} onValueChange={handleLanguageChange}>
           <SelectTrigger
             className="w-[110px] h-9 bg-white/5 border-white/10 text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200 [&>span:first-of-type]:hidden focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus:outline-none focus:border-white/10 active:border-white/10 data-[state=open]:border-white/10 data-[state=closed]:border-white/10 [&:focus]:border-white/10 [&:active]:border-white/10 [&:focus-visible]:border-white/10 [&:focus-visible]:ring-0"
             aria-label="Select language"

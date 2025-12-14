@@ -1,12 +1,12 @@
 "use client"
 
-import { useLanguage } from "@/context/LanguageContext"
+import { useLocale } from "next-intl"
 import { useTranslations } from "next-intl"
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 
 export default function CookiesPage() {
-  const { selectedLanguage } = useLanguage()
+  const selectedLanguage = useLocale()
   const t = useTranslations("cookies")
 
   const [openFaq, setOpenFaq] = useState<number | null>(null)

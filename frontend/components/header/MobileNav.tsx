@@ -1,9 +1,8 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
-import { useTranslations } from "next-intl"
-import { useLanguage } from "@/context/LanguageContext"
+import React from "react"
+import { Link, usePathname, useRouter } from "@/routing"
+import { useTranslations, useLocale } from "next-intl"
 import { cn } from "@/lib/utils"
 import {
   Select,
@@ -27,7 +26,7 @@ type MobileNavProps = {
 export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname()
   const router = useRouter()
-  const { selectedLanguage, setSelectedLanguage } = useLanguage()
+  const locale = useLocale()
   const t = useTranslations("nav")
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -41,18 +40,18 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
       } else {
-        router.push(`/${hash}`)
+        router.push(`/${hash}` as any)
       }
       onClose()
     }
   }
 
   const handleLanguageChange = (value: string) => {
-    setSelectedLanguage(value as "sl" | "en" | "fr")
+    router.replace(pathname, { locale: value })
     onClose()
   }
 
-  const currentLanguage = languages.find(lang => lang.code === selectedLanguage) || languages[0]
+  const currentLanguage = languages.find(lang => lang.code === locale) || languages[0]
 
   return (
     <div
@@ -66,7 +65,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         isOpen ? "translate-y-0" : "-translate-y-4"
       )}>
         <Link
-          href="/#o-nas"
+          href={"/#o-nas" as any}
           onClick={(e) => handleAnchorClick(e, '#o-nas')}
           className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
         >
@@ -98,7 +97,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </Link>
 
         <Link
-          href="/#kontakt"
+          href={"/#kontakt" as any}
           onClick={(e) => handleAnchorClick(e, '#kontakt')}
           className="py-2 px-2 border-b border-white/10 hover:bg-white/5 rounded-md transition-colors active:bg-white/10"
         >
@@ -106,7 +105,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </Link>
 
         <div className="pt-3 border-t border-white/10 mt-2">
-          <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
+          <Select value={locale} onValueChange={handleLanguageChange}>
             <SelectTrigger
               className="w-full h-10 bg-white/5 border-white/10 text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-200 [&>span:first-of-type]:hidden focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus:outline-none focus:border-white/10"
               aria-label="Select language"

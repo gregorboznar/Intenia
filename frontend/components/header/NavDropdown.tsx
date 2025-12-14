@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import Link from "next/link"
+import { Link } from "@/routing"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -15,11 +15,11 @@ type NavDropdownProps = {
   setActiveDropdown: (id: string | null) => void
 }
 
-export default function NavDropdown({ 
-  label, 
-  items, 
-  id, 
-  isMobile = false, 
+export default function NavDropdown({
+  label,
+  items,
+  id,
+  isMobile = false,
   className,
   activeDropdown,
   setActiveDropdown
@@ -28,8 +28,7 @@ export default function NavDropdown({
   const dropdownRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
-  
-  // Clear any pending timeout when component unmounts or dropdown state changes
+
   useEffect(() => {
     return () => {
       if (timeoutRef.current) {
@@ -38,7 +37,6 @@ export default function NavDropdown({
     }
   }, [activeDropdown])
 
-  // Handle click outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -56,7 +54,6 @@ export default function NavDropdown({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [isOpen, setActiveDropdown])
 
-  // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault()
@@ -66,32 +63,27 @@ export default function NavDropdown({
     }
   }
 
-  // For desktop only - hover functionality with improved handling
   const handleMouseEnter = () => {
     if (isMobile) return;
-    
-    // Clear any pending close timeout
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
       timeoutRef.current = null
     }
-    
-    // Set this dropdown as active immediately
+
+
     setActiveDropdown(id)
   }
 
   const handleMouseLeave = () => {
     if (isMobile) return;
-    
-    // Clear any existing timeout
+
+
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
     }
-    
-    // Set a small delay before closing to allow movement to another dropdown
+
     timeoutRef.current = setTimeout(() => {
-      // Only close if we're the currently active dropdown
-      // This prevents closing a newly opened dropdown
       if (activeDropdown === id) {
         setActiveDropdown(null)
       }
@@ -101,7 +93,7 @@ export default function NavDropdown({
   const toggleDropdown = () => {
     setActiveDropdown(isOpen ? null : id)
   }
-  
+
   const mobileStyles = isMobile ? {
     wrapper: "border-b border-white/10 pb-2",
     button: "flex items-center justify-between w-full py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary-light/70 rounded-md px-2",
@@ -113,10 +105,10 @@ export default function NavDropdown({
     content: "absolute top-full left-0 mt-1 w-64 bg-black/90 border border-white/10 rounded-xl overflow-hidden backdrop-blur-xl shadow-xl p-3 animate-fadeIn",
     item: "flex items-center px-4 py-2.5 hover:bg-white/10 rounded-lg transition-colors"
   }
-  
+
   return (
-    <div 
-      className={cn(mobileStyles.wrapper, className)} 
+    <div
+      className={cn(mobileStyles.wrapper, className)}
       onMouseEnter={isMobile ? undefined : handleMouseEnter}
       onMouseLeave={isMobile ? undefined : handleMouseLeave}
     >
@@ -137,7 +129,7 @@ export default function NavDropdown({
           )}
         />
       </button>
-      
+
       {isOpen && (
         <div
           ref={dropdownRef}
@@ -146,7 +138,7 @@ export default function NavDropdown({
           {items.map((item) => (
             <Link
               key={item}
-              href="#"
+              href={"#" as any}
               className={mobileStyles.item}
             >
               <span className={cn("font-medium", "text-sm")}>{item}</span>

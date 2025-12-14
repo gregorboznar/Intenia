@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 import { Rajdhani } from "next/font/google"
-import "./globals.css"
+import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { LanguageProvider } from "@/context/LanguageContext"
-import { IntlProvider } from "@/components/NextIntlProvider"
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "next-intl/server"
 import ModernHeader from "@/components/header"
 import ModernFooter from "@/components/footer"
 import CookieNotification from "@/components/cookie-notification"
@@ -72,13 +72,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default async function RootLayout(props: {
   children: React.ReactNode
-}>) {
+  params: Promise<{ locale: string }>
+}) {
+  const params = await props.params;
+
+  const {
+    locale
+  } = params;
+
+  const {
+    children
+  } = props;
+
+  const messages = await getMessages();
   return (
-    <html lang="sl" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://wp.intenia-engineering.si" />
         <link rel="dns-prefetch" href="https://wp.intenia-engineering.si" />
@@ -92,14 +102,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-            <IntlProvider>
-              <ModernHeader />
-              <main>{children}</main>
-              <ModernFooter />
-              <CookieNotification />
-            </IntlProvider>
-          </LanguageProvider>
+          <NextIntlClientProvider messages={messages}>
+            <ModernHeader />
+            <main>{children}</main>
+            <ModernFooter />
+            <CookieNotification />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
