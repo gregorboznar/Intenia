@@ -84,7 +84,7 @@ export default function Products() {
           <h2 id="products-heading" className="text-3xl  md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             {header}
           </h2>
-          <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto prose prose-invert">
             {description}
           </p>
         </motion.div>
