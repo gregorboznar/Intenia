@@ -154,7 +154,7 @@ export default function AboutUs() {
                       {firstSection.heading || firstSection.title?.rendered || "O nas"}
                     </h2>
                     <div
-                      className="text-md sm:text-base md:text-lg text-white/60 mb-8 lg:mb-12 prose prose-invert"
+                      className="text-md sm:text-base  text-white/60 mb-8 lg:mb-12 prose prose-invert"
                       dangerouslySetInnerHTML={{ __html: firstSection.description || firstSection.content?.rendered || "" }}
                     />
                   </>
@@ -188,7 +188,7 @@ export default function AboutUs() {
                       {section.heading || section.title?.rendered || ""}
                     </h3>
                     <div
-                      className="text-base sm:text-lg text-white/70 [&>p]:mb-6 [&>p:last-child]:mb-0 prose prose-invert"
+                      className="text-base sm:text-md text-white/70 [&>p]:mb-6 [&>p:last-child]:mb-0 prose prose-invert"
                       dangerouslySetInnerHTML={{ __html: section.description || section.content?.rendered || "" }}
                     />
                     {Number(section.order) === 4 && (
@@ -221,7 +221,7 @@ export default function AboutUs() {
             </>
           )}
           <div className="mb-20 lg:mb-32">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">{t("heading")}</h3>
+            <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold text-white mb-12 text-center">{t("heading")}</h2>
             {principlesLoading ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[1, 2, 3].map((i) => (
