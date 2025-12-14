@@ -95,6 +95,7 @@
     "sending": "Pošiljanje...",
     "send": "Pošlji",
     "success": "Povpraševanje je bilo uspešno oddano!",
+    "privacyAndCookies": "Politika zasebnosti in piškotkov",
     "errors": {
       "nameRequired": "Ime in priimek je obvezen podatek",
       "emailRequired": "Email naslov je obvezen podatek",

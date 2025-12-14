@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useState, useRef, useEffect } from "react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/routing"
 
 export default function ContactForm() {
   const t = useTranslations("contact")
@@ -272,9 +273,9 @@ export default function ContactForm() {
                               htmlFor="ContactTerms"
                             >
                               {t("termsText")}{" "}
-                              <a href="/stran/politika-zasebnosti" className="underline hover:text-black">
-                                {t("privacyPolicy")}
-                              </a>
+                              <Link href="/cookies" className="underline hover:text-black">
+                                {t("privacyAndCookies")}
+                              </Link>
                               .
                             </label>
                           </div>

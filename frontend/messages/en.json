@@ -96,6 +96,7 @@
     "sending": "Sending...",
     "send": "Send",
     "success": "Your inquiry has been successfully submitted!",
+    "privacyAndCookies": "Privacy and Cookies Policy",
     "errors": {
       "nameRequired": "Full name is required",
       "emailRequired": "Email address is required",

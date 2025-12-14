@@ -97,6 +97,7 @@
     "sending": "Envoi...",
     "send": "Envoyer",
     "success": "Votre demande a été soumise avec succès!",
+    "privacyAndCookies": "Politique de confidentialité et cookies",
     "errors": {
       "nameRequired": "Le nom complet est requis",
       "emailRequired": "L'adresse e-mail est requise",
