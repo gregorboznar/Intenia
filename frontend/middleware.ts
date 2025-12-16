@@ -4,6 +4,7 @@ import { routing } from './routing';
 export default createMiddleware(routing);
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(sl|en|fr)/:path*']
+  matcher: [
+    '/((?!api|_next|_vercel|.*\\..*).*)'
+  ]
 };
