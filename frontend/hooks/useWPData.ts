@@ -37,7 +37,7 @@ interface WPData {
   image?: WPImage
   [key: string]: any
 }
-
+//test
 export function useWPData(endpoint: string) {
   const selectedLanguage = useLocale()
   const [data, setData] = useState<WPData[]>([])
