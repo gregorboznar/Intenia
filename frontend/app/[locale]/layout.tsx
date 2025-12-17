@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       siteName: "Intenia Engineering",
       images: [
         {
-          url: "/temp.png",
+          url: "https://www.intenia-engineering.si/images/logos/intenia-logo-2.png",
           width: 1200,
           height: 630,
           alt: "Intenia Engineering",
@@ -96,7 +96,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: "summary_large_image",
       title: "Intenia Engineering",
       description,
-      images: ["/temp.png"],
+      images: ["https://www.intenia-engineering.si/images/logos/intenia-logo-2.png"],
     },
   };
 }
