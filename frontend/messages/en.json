@@ -8,7 +8,8 @@
   },
   "footer": {
     "copyright": "All rights reserved.",
-    "privacyAndCookies": "Privacy and Cookies Policy"
+    "privacyAndCookies": "Privacy and Cookies Policy",
+    "followUs": "Follow Us"
   },
   "hero": {
     "title1": "Engineering Excellence",
@@ -75,7 +76,6 @@
     "heading": "Our Principles"
   },
   "products": {
-
     "exploreMore": "Explore More Products"
   },
   "gallery": {

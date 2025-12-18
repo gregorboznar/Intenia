@@ -147,14 +147,14 @@ export default function ModernFooter() {
 
   return (
     <footer ref={footerRef} className="bg-black   px-3 sm:px-6 lg:px-8">
-      <div className="container mx-auto px-4">
-        {/*  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 gap-4 flex flex-col">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-12">
           <div>
-            <p className="text-white/70 mb-6">
+            {/*  <p className="text-white/70 mb-6">
               Omogočanje podjetjem z rešitvami, ki jih poganja umetna inteligenca, za spodbujanje rasti in učinkovitosti.
-            </p>
+            </p> */}
             <div className="flex space-x-4">
-              <Link href="#" className="text-white/50 hover:text-white transition-colors">
+              {/*   <Link href="#" className="text-white/50 hover:text-white transition-colors">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
@@ -165,19 +165,23 @@ export default function ModernFooter() {
               <Link href="#" className="text-white/50 hover:text-white transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-white/50 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link href="#" className="text-white/50 hover:text-white transition-colors">
+              </Link> */}
+              <div className="flex items-center space-x-2">
+                <span>{t("followUs")}</span>
+                <Link target="_blank" href="https://www.linkedin.com/company/intenia-engineering" className="text-white hover:text-white/80 transition-colors relative bottom-[3.5px]">
+                  <Linkedin className="h-5 w-5" />
+                  <span className="sr-only">LinkedIn</span>
+                </Link>
+              </div>
+
+              {/*  <Link href="#" className="text-white/50 hover:text-white transition-colors">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
 
-          <div>
+          {/*  <div>
             <h3 className="text-lg font-bold mb-4">Product</h3>
             <ul className="space-y-3">
               <li>
@@ -268,8 +272,8 @@ export default function ModernFooter() {
                 </Link>
               </li>
             </ul>
-          </div>
-        </div> */}
+          </div> */}
+        </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm mb-4 md:mb-0">© {new Date().getFullYear()} Intenia Engineering. {t("copyright")}</p>

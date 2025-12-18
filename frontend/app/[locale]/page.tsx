@@ -50,12 +50,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <HeroServer locale={locale} />
       <Services />
       <Products />
-
       <AboutUs />
-
-
       <ContactForm />
-
     </div>
   );
 }
