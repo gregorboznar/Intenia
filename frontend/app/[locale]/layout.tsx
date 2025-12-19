@@ -66,11 +66,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     icons: {
       icon: [
-        { url: "/images/icons/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
         { url: "/images/icons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
         { url: "/images/icons/favicon.ico", sizes: "any" },
       ],
-      shortcut: "/images/icons/favicon.svg",
+      shortcut: "/favicon.svg",
       apple: "/images/icons/apple-touch-icon.png",
     },
     manifest: "/site.webmanifest",
