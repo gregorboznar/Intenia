@@ -66,15 +66,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "48x48" },
-        { url: "/images/icons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+        { url: "/favicon.ico?v=1", sizes: "48x48" },
+        { url: "/images/icons/favicon-96x96.png?v=1", sizes: "96x96", type: "image/png" },
       ],
-      shortcut: "/favicon.ico",
-      apple: "/apple-icon.png",
+      shortcut: "/favicon.ico?v=1",
+      apple: "/apple-icon.png?v=1",
       other: [
         {
           rel: "apple-touch-icon-precomposed",
-          url: "/apple-icon.png",
+          url: "/apple-icon.png?v=1",
         },
       ],
     },
