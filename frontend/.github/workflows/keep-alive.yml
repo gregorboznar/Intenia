@@ -1,0 +1,28 @@
+name: Keep Vercel Warm
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    steps:
+      - name: Ping Homepage
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/ || echo "Request failed"
+      
+      - name: Ping API Route
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/services?lang=sl || echo "Request failed"
+      
+      - name: Ping with Locale (Slovenian)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/sl || echo "Request failed"
+      
+      - name: Ping with Locale (English)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/en || echo "Request failed"
