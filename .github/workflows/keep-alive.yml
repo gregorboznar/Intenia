@@ -11,19 +11,42 @@ jobs:
     timeout-minutes: 5
     
     steps:
-      - name: Ping Homepage
-        run: |
-          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/ || echo "Request failed"
-      
-      - name: Ping API Route
-        run: |
-          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/services?lang=sl || echo "Request failed"
-      
-      - name: Ping with Locale (Slovenian)
+      - name: Ping Homepage (Slovenian)
         run: |
           curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/sl || echo "Request failed"
       
-      - name: Ping with Locale (English)
+      - name: Ping Homepage (English)
         run: |
           curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/en || echo "Request failed"
-
+      
+      - name: Ping Products Page (English)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/en/products || echo "Request failed"
+      
+      - name: Warm API - Header Section (EN)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/header-section?lang=en || echo "Request failed"
+      
+      - name: Warm API - Services (EN)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/services?lang=en || echo "Request failed"
+      
+      - name: Warm API - Services Section (EN)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/services-section?lang=en || echo "Request failed"
+      
+      - name: Warm API - New Products (EN)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/new-products?lang=en || echo "Request failed"
+      
+      - name: Warm API - New Products Section (EN)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/new-products-section?lang=en || echo "Request failed"
+      
+      - name: Warm API - Services (SL)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/services?lang=sl || echo "Request failed"
+      
+      - name: Warm API - New Products (SL)
+        run: |
+          curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/api/wp/new-products?lang=sl || echo "Request failed"
