@@ -26,3 +26,4 @@ jobs:
       - name: Ping with Locale (English)
         run: |
           curl -f -s -o /dev/null -w "%{http_code}" ${{ secrets.VERCEL_URL }}/en || echo "Request failed"
+
