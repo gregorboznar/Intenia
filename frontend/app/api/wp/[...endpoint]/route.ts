@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export const revalidate = 3600;
 
 async function fetchFromWordPress(endpoint: string, lang: string): Promise<any> {
-  const url = `https://wp.intenia-engineering.si/wp-json/wp/v2/${endpoint}?lang=${lang}&_embed`;
+  const url = `https://wp.intenia-engineering.si/wp-json/wp/v2/${endpoint}?lang=${lang}&_embed&per_page=100`;
 
   const response = await fetch(url, {
     next: { revalidate: 3600 },
