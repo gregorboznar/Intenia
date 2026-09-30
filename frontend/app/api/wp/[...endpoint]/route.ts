@@ -1,25 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-async function fetchFromWordPress(endpoint: string, lang: string): Promise<any> {
-  const baseUrl = process.env.NEXT_PUBLIC_WP_URL;
-  const url = `${baseUrl}/${endpoint}?lang=${lang}&_embed&per_page=100`;
-
-  const response = await fetch(url, {
-    next: {
-      revalidate: 3600,
-      tags: [endpoint, `locale:${lang}`]
-    },
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; Next.js Server; +https://nextjs.org/)',
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`WordPress API error: ${response.status}`);
-  }
-
-  return response.json();
-}
+import { fetchWP } from '@/lib/wp-ssr';
 
 export async function GET(
   request: NextRequest,
@@ -31,11 +11,11 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const lang = searchParams.get('lang') || 'sl';
 
-    const data = await fetchFromWordPress(endpointPath, lang);
+    const data = await fetchWP(endpointPath, { locale: lang });
 
     return NextResponse.json(data, {
       headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=3600',
       },
     });
   } catch (error: any) {

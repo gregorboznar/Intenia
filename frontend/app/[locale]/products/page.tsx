@@ -1,5 +1,5 @@
 import ProductsClient from './ProductsClient';
-import { getLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { getWPData, getWPSection } from "@/lib/wp-ssr";
 import type { Metadata } from 'next';
 
@@ -37,8 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function ProductsPage() {
-  const locale = await getLocale();
+export default async function ProductsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const [products, productsSection] = await Promise.all([
     getWPData("new-products", { locale, revalidate }),
     getWPSection("new-products-section", { locale, revalidate }),

@@ -4,6 +4,7 @@ import ServicesServer from "@/components/services-server";
 import ScrollToTop from "@/components/scroll-to-top";
 import ScrollToContact from "@/components/scroll-to-contact";
 import type { Metadata } from 'next';
+import { setRequestLocale } from "next-intl/server";
 import ProductsServer from "@/components/products-server";
 import AboutUsServer from "@/components/about-us-server";
 
@@ -57,6 +58,7 @@ import { ScrollRestoration, LazyLoad } from "@/components/client-wrappers";
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <div className="min-h-screen bg-black px-0 sm:px-4 text-white">

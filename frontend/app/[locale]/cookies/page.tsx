@@ -1,5 +1,6 @@
 import CookiesPage from "@/components/cookies-page"
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -33,6 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function CookiesPageRoute() {
+export default async function CookiesPageRoute({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return <CookiesPage />
 }

@@ -1,6 +1,7 @@
 import GalleryClient from './GalleryClient';
 import { getGalleryImages } from '@/lib/wordpress';
 import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -45,7 +46,10 @@ interface GalleryItem {
   image: GalleryImage[];
 }
 
-export default async function GalleryPage() {
+export default async function GalleryPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   try {
     const wpGalleries: GalleryItem[] = await getGalleryImages();
 

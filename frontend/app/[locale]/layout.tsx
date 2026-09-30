@@ -3,7 +3,10 @@ import { Rajdhani } from "next/font/google"
 import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { NextIntlClientProvider } from "next-intl"
-import { getMessages } from "next-intl/server"
+import { getMessages, setRequestLocale } from "next-intl/server"
+import { hasLocale } from "next-intl"
+import { notFound } from "next/navigation"
+import { routing } from "@/routing"
 import ModernHeader from "@/components/header"
 import ModernFooter from "@/components/footer"
 import CookieNotification from "@/components/cookie-notification"
@@ -15,6 +18,12 @@ const rajdhani = Rajdhani({
   display: "swap",
   preload: true,
 })
+
+export const revalidate = 3600
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -120,6 +129,11 @@ export default async function RootLayout(props: {
   const {
     children
   } = props;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+  setRequestLocale(locale)
 
   const messages = await getMessages();
   return (

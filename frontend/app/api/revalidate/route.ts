@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidateTag, revalidatePath } from "next/cache";
+import { WP_TAG } from "@/lib/wp-ssr";
 
 export async function POST(req: Request) {
   const secret = req.headers.get("x-revalidate-secret");
@@ -12,6 +13,11 @@ export async function POST(req: Request) {
 
   const paths: string[] = Array.isArray(body.paths) ? body.paths : body.path ? [body.path] : [];
   const tags: string[] = Array.isArray(body.tags) ? body.tags : body.tag ? [body.tag] : [];
+
+  // No target given: refresh all WordPress content
+  if (paths.length === 0 && tags.length === 0) {
+    tags.push(WP_TAG);
+  }
 
   for (const p of paths) {
     revalidatePath(p, "page");

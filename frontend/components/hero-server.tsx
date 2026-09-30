@@ -1,26 +1,9 @@
 import Image from "next/image"
 import HeroClient from "./hero-client"
-
-export const revalidate = 3600
+import { getWPSection } from "@/lib/wp-ssr"
 
 async function getHeaderSection(locale: string) {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-    const url = `${baseUrl}/api/wp/header-section?lang=${locale}`
-
-    const response = await fetch(url, {
-      next: { revalidate: 3600 }
-    })
-
-    if (!response.ok) {
-      return null
-    }
-
-    const data = await response.json()
-    return data?.[0] || null
-  } catch (error) {
-    return null
-  }
+  return getWPSection("header-section", { locale })
 }
 
 export default async function HeroServer({ locale }: { locale: string }) {
